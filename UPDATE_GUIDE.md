@@ -9,7 +9,7 @@
 ### 1-1. 作業フォルダへ移動
 
 ```bash
-cd /Users/tanji/MyDocuments/myDev/working/ai-distance
+cd /path/to/ai-distance
 ```
 
 ### 1-2. 変更状況を確認
