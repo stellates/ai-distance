@@ -114,10 +114,12 @@ h1, h2, h3, p { margin-top: 0; }
 }
 
 .post-card-image img {
+  width: 100%;
   border-radius: 22px;
   border: 1px solid var(--line);
+  background: var(--paper);
   aspect-ratio: 4 / 5;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .post-card h3 {
