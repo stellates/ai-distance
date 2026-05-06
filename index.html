@@ -10,6 +10,96 @@
   <meta property="og:type" content="website" />
   <link rel="stylesheet" href="./styles.css?v=20260505" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>
+    .post-tools {
+      display: grid;
+      gap: 0.9rem;
+      margin: 1.5rem 0 1.75rem;
+      padding: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .post-count {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .post-count strong {
+      color: inherit;
+      font-size: 1.15em;
+    }
+
+    .post-filters {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .post-filter-field {
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .post-filter-field input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.72rem 0.85rem;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      border-radius: 999px;
+      font: inherit;
+      background: #fff;
+    }
+
+    .post-filter-field input:focus {
+      outline: 2px solid rgba(0, 0, 0, 0.18);
+      outline-offset: 2px;
+    }
+
+    .post-filter-reset {
+      justify-self: start;
+      padding: 0.62rem 0.95rem;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 999px;
+      font: inherit;
+      color: #555;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .post-filter-reset:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .post-empty-message {
+      display: none;
+      margin: 1.5rem 0 0;
+      color: #777;
+    }
+
+    .post-empty-message.is-visible {
+      display: block;
+    }
+
+    .post-card[hidden] {
+      display: none;
+    }
+
+    @media (min-width: 720px) {
+      .post-tools {
+        grid-template-columns: auto 1fr;
+        align-items: end;
+      }
+
+      .post-filters {
+        grid-template-columns: minmax(220px, 1fr) 180px auto;
+        align-items: end;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -35,6 +125,23 @@
         <h2>最近のぼやき</h2>
         <p>画像＋短いメモで、ぽいぽい貯めていく予定です。</p>
       </div>
+      <div class="post-tools" aria-label="記事の絞り込み">
+        <p class="post-count" aria-live="polite">
+          掲載記事 <strong id="visible-post-count">0</strong> / <span id="total-post-count">0</span> 件
+        </p>
+        <div class="post-filters">
+          <label class="post-filter-field">
+            過去記事検索
+            <input id="post-search" type="search" placeholder="タイトル・本文・タグで検索" autocomplete="off" />
+          </label>
+          <label class="post-filter-field">
+            公開日で絞り込み
+            <input id="post-date-filter" type="date" />
+          </label>
+          <button class="post-filter-reset" type="button" id="post-filter-reset">絞り込みを解除</button>
+        </div>
+      </div>
+      <p class="post-empty-message" id="post-empty-message">該当する記事が見つかりませんでした。</p>
 
       <article class="post-card">
         <a class="post-card-image" href="./posts/003.html">
@@ -98,5 +205,63 @@
   <footer class="site-footer">
     <p>© ai-distance</p>
   </footer>
+  <script>
+    (() => {
+      const posts = Array.from(document.querySelectorAll('.post-card'));
+      const searchInput = document.getElementById('post-search');
+      const dateInput = document.getElementById('post-date-filter');
+      const resetButton = document.getElementById('post-filter-reset');
+      const visibleCount = document.getElementById('visible-post-count');
+      const totalCount = document.getElementById('total-post-count');
+      const emptyMessage = document.getElementById('post-empty-message');
+
+      if (!posts.length || !searchInput || !dateInput || !resetButton || !visibleCount || !totalCount || !emptyMessage) {
+        return;
+      }
+
+      const normalize = (value) => value.trim().toLowerCase();
+
+      const postData = posts.map((post) => {
+        const time = post.querySelector('time');
+        return {
+          element: post,
+          date: time ? time.getAttribute('datetime') : '',
+          text: normalize(post.textContent || ''),
+        };
+      });
+
+      const updatePosts = () => {
+        const keyword = normalize(searchInput.value);
+        const selectedDate = dateInput.value;
+        let shown = 0;
+
+        postData.forEach((post) => {
+          const matchesKeyword = !keyword || post.text.includes(keyword);
+          const matchesDate = !selectedDate || post.date === selectedDate;
+          const shouldShow = matchesKeyword && matchesDate;
+
+          post.element.hidden = !shouldShow;
+          if (shouldShow) {
+            shown += 1;
+          }
+        });
+
+        visibleCount.textContent = String(shown);
+        emptyMessage.classList.toggle('is-visible', shown === 0);
+      };
+
+      totalCount.textContent = String(posts.length);
+      searchInput.addEventListener('input', updatePosts);
+      dateInput.addEventListener('change', updatePosts);
+      resetButton.addEventListener('click', () => {
+        searchInput.value = '';
+        dateInput.value = '';
+        updatePosts();
+        searchInput.focus();
+      });
+
+      updatePosts();
+    })();
+  </script>
 </body>
 </html>
