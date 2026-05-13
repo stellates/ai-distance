@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>#010 同じ指示なのにどうしてこうなった？！ | AIとのちょうどいい距離感</title>
+  <meta name="description" content="同じプロンプトを投げても、生成AIの返答は日によって少し変わることがあります。便利だけど、再現性の確保は意外と難しい。" />
+  <meta property="og:title" content="#010 同じ指示なのにどうしてこうなった？！" />
+  <meta property="og:description" content="同じ指示なのに、昨日と今日で出力量も挙動も少し違う。AIは便利だけど、再現性の確保は意外と難しい。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="../assets/images/010-same-prompt-different-output.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260505" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="AIとのちょうどいい距離感 トップへ">
+      <span class="brand-mark">AI</span>
+      <span class="brand-text">AIとのちょうどいい距離感</span>
+    </a>
+  </header>
+
+  <main class="post-layout">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="../index.html">トップ</a>
+      <span>/</span>
+      <span>#010</span>
+    </nav>
+
+    <article class="post">
+      <header class="post-header">
+        <p class="post-number">#010</p>
+        <p class="post-date"><time datetime="2026-05-13">公開日 2026/5/13</time></p>
+        <h1>同じ指示なのにどうしてこうなった？！</h1>
+        <p class="post-subtitle">昨日と同じお願いをしたはずなのに、なんか今日だけ違う。</p>
+      </header>
+
+      <figure class="main-visual">
+        <img src="../assets/images/010-same-prompt-different-output.png" alt="同じ指示なのにどうしてこうなった？！編。同じプロンプトでも日によって生成AIの出力量やWeb検索の有無が揺れる流れを描いた漫画" />
+      </figure>
+
+      <section class="memo">
+        <h2>メモ</h2>
+        <p>
+          AIに同じプロンプトを投げたのに、返ってくる内容が日によって微妙に違うことがあります。
+        </p>
+        <p>
+          1日目はちゃんとWeb検索して、リンクも多めに拾ってくれる。2日目は同じお願いなのに、なぜか少しコンパクト。3日目には「手元の知識でまとめますね」みたいな顔をしている。いや、Web検索してって言ったよね。
+        </p>
+        <p>
+          よく見ると、サボっているように見える日だけでなく、見出しの数、説明の厚み、拾う観点も少しずつ違います。こちらは「同じ指示だから同じ結果」が返るつもりでいるので、差分があると地味にびっくりする。
+        </p>
+        <p>
+          へ〜と思うのは、AIの返答は「前回と同じ手順を機械的に再実行したログ」ではなく、その時点の会話、指示の解釈、検索や要約の判断が混ざってできる文章だというところ。便利だけど、毎回ぴったり同じにはなりにくい。
+        </p>
+        <p>
+          だから、再現性が大事な作業では「Web検索必須」「検索したURLを列挙」「最低5件」「比較表の列は固定」「最後に確認チェックを出す」みたいに、条件と手順を固定しておくほうが安心です。
+        </p>
+      </section>
+
+      <section class="memo soft">
+        <h2>今回の距離感</h2>
+        <p>
+          AIは便利。でも、同じ指示で同じ結果を期待しすぎず、再現したい部分は条件・手順・確認ポイントまで固定するくらいがちょうどいいかもしれません。
+        </p>
+      </section>
+
+      <div class="tags" aria-label="タグ">
+        <span>再現性</span>
+        <span>Web検索</span>
+        <span>指示の固定</span>
+      </div>
+    </article>
+
+    <p class="back-link"><a href="../index.html">← 一覧へ戻る</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© ai-distance</p>
+  </footer>
+</body>
+</html>
