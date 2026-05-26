@@ -63,6 +63,8 @@ docs/agent/CODING_AGENT_SPEC.md
 Codex / coding agent は、`docs/agent/CODING_AGENT_SPEC.md` の内容に従い、
 新記事作成から commit までを可能な範囲で自動実行してください。
 
+人間が Codex を使って更新する手順は `docs/manual/CODEX_UPDATE_GUIDE.md` を参照してください。
+
 ---
 
 ## 判断ルール

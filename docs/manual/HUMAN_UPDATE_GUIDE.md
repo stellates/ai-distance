@@ -1,4 +1,4 @@
-# ai-distance 更新手順
+# ai-distance 人間向け更新手順
 
 このメモは、人間が ChatGPT を使って `ai-distance` に新しい記事を追加し、
 GitHub Pages に公開するための手順です。
@@ -22,8 +22,9 @@ GitHub Pages に公開するための手順です。
 - 作業ブランチのローカル確認は人間が行う
 - `main` への merge は人間が行う
 
-詳細な ChatGPT 側の支援ルールは `CHATGPT_ASSISTANT_GUIDE.md` を参照します。
-Codex / coding agent に自動作業を任せる場合は `CODING_AGENT_SPEC.md` を参照します。
+詳細な ChatGPT 側の支援ルールは `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` を参照します。
+Codex / coding agent に自動作業を任せる場合は `docs/agent/CODING_AGENT_SPEC.md` を参照します。
+Codex を使う人間向け手順は `docs/manual/CODEX_UPDATE_GUIDE.md` を参照します。
 
 ---
 
@@ -52,7 +53,7 @@ ChatGPT に、まず以下のように依頼します。
 ```text
 @GitHub ai-distance
 
-AGENTS.md を読んで、CHATGPT_ASSISTANT_GUIDE.md に従ってください。
+AGENTS.md を読んで、docs/agent/CHATGPT_ASSISTANT_GUIDE.md に従ってください。
 
 テーマ「ここにテーマを書く」で、新しい記事追加を手伝ってください。
 
