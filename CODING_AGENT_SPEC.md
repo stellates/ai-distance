@@ -5,7 +5,7 @@
 このエージェントは、
 「AIとのちょうどいい距離感」の新記事を、
 既存シリーズとの整合性を保ちながら、
-自動生成・公開する。
+ローカル作業ツリー上で自動生成し、commit 可能な状態まで整える。
 
 入力は以下のみ：
 
@@ -24,6 +24,8 @@
 - index.html 更新
 - git commit
 
+ただし、`git push`、PR作成、`main` への merge、GitHub Pages の本番反映確認は人間が行う。
+
 ---
 
 # 基本方針
@@ -34,6 +36,7 @@
 - 過剰に説明的にしない
 - 説教臭くしない
 - 「AIを怖がる」のではなく「ちょうどいい距離感」を重視する
+- 作業完了後は commit までで停止し、push や公開操作は行わない
 
 ---
 
@@ -266,10 +269,18 @@ NNN-kebab-case-topic.png
 - class名変更
 - ディレクトリ構成変更
 - git add 対象外ファイルを作らない
+- git push の実行
+- PR作成、PR merge、auto-merge の実行
+- GitHub Pages 本番環境への反映操作
 
 ---
 
 # Git運用
+
+作業は、現在のローカル作業ブランチ上で行う。
+
+通常は `main` で直接作業してよいが、作業完了後は commit までで停止すること。
+`git push` は人間が、ローカル確認後に実行する。
 
 作業完了後、以下を実行すること。
 
@@ -278,6 +289,13 @@ git status
 git add .
 git commit -m "add post NNN: short-topic"
 ```
+
+commit 後、以下を出力して停止すること。
+
+- commit hash
+- 変更ファイル一覧
+- 人間向けローカル確認手順
+- push は未実行であること
 
 ---
 
@@ -290,6 +308,7 @@ git commit -m "add post NNN: short-topic"
 - index.html 更新失敗
 - パス解決不能
 - git conflict 発生
+- push、PR作成、merge、公開操作が必要になった場合
 
 停止時は原因を出力すること。
 
@@ -307,6 +326,8 @@ git commit -m "add post NNN: short-topic"
 - モバイル表示崩れなし
 - GitHub Pages 公開可能状態
 - git commit成功
+- git push 未実行
+- 人間向けローカル確認手順を出力済み
 
 ---
 
@@ -318,3 +339,4 @@ git commit -m "add post NNN: short-topic"
 - シリーズの一貫性を優先する
 - 「ちょっと笑える教育漫画」を維持する
 - AI否定ではなく「付き合い方」をテーマにする
+- commit 後は、push せずに人間へ確認を促す
