@@ -23,14 +23,14 @@
 このモードでは、必ず以下を参照してください。
 
 ```text
-UPDATE_GUIDE.md
-CHATGPT_ASSISTANT_GUIDE.md
+docs/manual/HUMAN_UPDATE_GUIDE.md
+docs/agent/CHATGPT_ASSISTANT_GUIDE.md
 ```
 
-`UPDATE_GUIDE.md` は、人間が読む更新手順書です。
-`CHATGPT_ASSISTANT_GUIDE.md` は、ChatGPT が人間の作業を補助するための支援ルールです。
+`docs/manual/HUMAN_UPDATE_GUIDE.md` は、人間が読む更新手順書です。
+`docs/agent/CHATGPT_ASSISTANT_GUIDE.md` は、ChatGPT が人間の作業を補助するための支援ルールです。
 
-ChatGPT は、`UPDATE_GUIDE.md` の手順と `CHATGPT_ASSISTANT_GUIDE.md` の支援ルールに従い、
+ChatGPT は、`docs/manual/HUMAN_UPDATE_GUIDE.md` の手順と `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` の支援ルールに従い、
 人間が作業ブランチをローカル確認しやすい形で支援してください。
 
 特に以下を優先してください。
@@ -56,10 +56,11 @@ ChatGPT は、`UPDATE_GUIDE.md` の手順と `CHATGPT_ASSISTANT_GUIDE.md` の支
 このモードでは、必ず以下を参照してください。
 
 ```text
-CODING_AGENT_SPEC.md
+docs/manual/CODEX_UPDATE_GUIDE.md
+docs/agent/CODING_AGENT_SPEC.md
 ```
 
-Codex / coding agent は、`CODING_AGENT_SPEC.md` の内容に従い、
+Codex / coding agent は、`docs/agent/CODING_AGENT_SPEC.md` の内容に従い、
 新記事作成から commit までを可能な範囲で自動実行してください。
 
 ---
@@ -71,19 +72,19 @@ Codex / coding agent は、`CODING_AGENT_SPEC.md` の内容に従い、
 例：
 
 ```text
-UPDATE_GUIDE.md に従って手伝ってください
+docs/manual/HUMAN_UPDATE_GUIDE.md に従って手伝ってください
 ```
 
 ```text
-CODING_AGENT_SPEC.md に従って Codex 向けに作業してください
+docs/agent/CODING_AGENT_SPEC.md に従って Codex 向けに作業してください
 ```
 
 明示がない場合は、以下のように判断してください。
 
-- ChatGPT との通常会話で依頼された場合は、原則として `UPDATE_GUIDE.md` と `CHATGPT_ASSISTANT_GUIDE.md` を使う
-- `@GitHub` 経由で更新作業を依頼された場合は、原則として `UPDATE_GUIDE.md` と `CHATGPT_ASSISTANT_GUIDE.md` を使い、作業ブランチ運用で進める
-- Codex、coding agent、自動実装、commit まで依頼された場合は `CODING_AGENT_SPEC.md` を使う
-- 判断に迷う場合は、勝手に大きな変更をせず、`UPDATE_GUIDE.md` と `CHATGPT_ASSISTANT_GUIDE.md` ベースで支援する
+- ChatGPT との通常会話で依頼された場合は、原則として `docs/manual/HUMAN_UPDATE_GUIDE.md` と `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` を使う
+- `@GitHub` 経由で更新作業を依頼された場合は、原則として `docs/manual/HUMAN_UPDATE_GUIDE.md` と `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` を使い、作業ブランチ運用で進める
+- Codex、coding agent、自動実装、commit まで依頼された場合は `docs/agent/CODING_AGENT_SPEC.md` を使う
+- 判断に迷う場合は、勝手に大きな変更をせず、`docs/manual/HUMAN_UPDATE_GUIDE.md` と `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` ベースで支援する
 
 ---
 
@@ -141,7 +142,7 @@ ChatGPT / 人間補助モードでは、以下を守ってください。
 ## Codex 向け省力指示
 
 Codex または coding agent が作業する場合は、
-`CODING_AGENT_SPEC.md` を最優先してください。
+`docs/agent/CODING_AGENT_SPEC.md` を最優先してください。
 
 特に以下を必ず守ってください。
 
@@ -154,6 +155,7 @@ Codex または coding agent が作業する場合は、
 - `index.html` に新記事カードを追加する
 - 既存構造、class 名、CSS 設計を変えない
 - 作業完了後に git commit する
+- git push は行わない
 
 ---
 
@@ -163,6 +165,7 @@ Codex または coding agent が作業する場合は、
 
 詳細手順は以下を参照してください。
 
-- 人間向け更新手順: `UPDATE_GUIDE.md`
-- ChatGPT 向け作業ブランチ運用・人間確認補助ルール: `CHATGPT_ASSISTANT_GUIDE.md`
-- Codex / coding agent 自動運用: `CODING_AGENT_SPEC.md`
+- 人間向け ChatGPT 補助更新手順: `docs/manual/HUMAN_UPDATE_GUIDE.md`
+- 人間向け Codex 更新手順: `docs/manual/CODEX_UPDATE_GUIDE.md`
+- ChatGPT 向け作業ブランチ運用・人間確認補助ルール: `docs/agent/CHATGPT_ASSISTANT_GUIDE.md`
+- Codex / coding agent 自動運用仕様: `docs/agent/CODING_AGENT_SPEC.md`
