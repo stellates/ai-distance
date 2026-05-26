@@ -4,8 +4,6 @@
 
 人間が読む具体的な作業手順は `docs/manual/HUMAN_UPDATE_GUIDE.md` を参照します。
 Codex / coding agent に自動作業を任せる場合は `docs/agent/CODING_AGENT_SPEC.md` を参照します。
-人間が読む具体的な作業手順は `docs/manual/HUMAN_UPDATE_GUIDE.md` を参照します。
-Codex / coding agent に自動作業を任せる場合は `docs/agent/CODING_AGENT_SPEC.md` を参照します。
 
 ---
 
@@ -26,8 +24,6 @@ ChatGPT は、人間が `ai-distance` に新しい記事を追加する作業を
 ChatGPT は、人間から明示依頼があった場合に、以下を行います。
 
 - `AGENTS.md` を確認する
-- `docs/manual/HUMAN_UPDATE_GUIDE.md` を必要に応じて確認する
-- この `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` を確認する
 - `docs/manual/HUMAN_UPDATE_GUIDE.md` を必要に応じて確認する
 - この `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` を確認する
 - 既存記事、`index.html`、画像ファイル名の傾向を確認する
