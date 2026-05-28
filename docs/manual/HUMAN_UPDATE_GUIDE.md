@@ -65,7 +65,7 @@ ChatGPTにテーマ相談
 ChatGPT に、まず以下のように依頼します。
 
 ```text
-@GitHub ai-distance
+@GitHub stellates/ai-distance
 
 AGENTS.md を読んで、docs/agent/CHATGPT_ASSISTANT_GUIDE.md に従ってください。
 
