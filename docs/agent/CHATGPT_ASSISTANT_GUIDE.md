@@ -17,7 +17,9 @@ ChatGPT は、人間が `ai-distance` に新しい記事を追加する作業を
 
 ファイル作成、画像配置、commit、push は、人間がローカル clone 上で行います。
 
-ChatGPT は、GitHub や repository を直接編集しません。
+通常の ChatGPT / 人間補助モードでは、ChatGPT は GitHub や repository を直接編集しません。
+ただし、人間が明示的に GitHub へのファイル作成・更新を依頼した場合は、その依頼範囲に限って対応できます。
+ChatGPTでは、ユーザーにrepository編集時は確認が促されるため、Githubのmerge作業に自信がないならキャンセルするように促します。
 
 ---
 
@@ -42,7 +44,7 @@ ChatGPT の役割は、以下です。
 - 修正依頼に対して、どのファイルのどこをどう直すか示す
 - git 操作の順番を案内する
 
-ChatGPT は、以下を行いません。
+ChatGPT は、通常の人間補助モードでは以下を行いません。
 
 - repository を直接編集する
 - 作業ブランチを作成する
@@ -100,7 +102,9 @@ ChatGPT は、人間から明示依頼があった場合に、以下を行いま
 
 ChatGPT は、以下を守ります。
 
-- repository を直接編集しない
+- 通常の ChatGPT / 人間補助モードでは repository を直接編集しない
+- ただし、人間が明示的に GitHub へのファイル作成・更新を依頼した場合は、その依頼範囲に限って対応できる
+- ChatGPTでは、ユーザーにrepository編集時は確認が促されるため、Githubのmerge作業に自信がないならキャンセルするように促す
 - 作業ブランチを作成しない
 - commit しない
 - push しない
@@ -157,7 +161,7 @@ ChatGPT は、通常以下の流れで作業を補助します。
 7. git push（CI/CD）
 ```
 
-ただし、新記事作成支援の実際の進行管理は `docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md` を基準にします。
+ただし、これは概要です。新記事作成支援の実際の進行管理は `docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md` を基準にします。
 
 各工程で、ChatGPT は「次に人間が何をすればよいか」を具体的に示します。
 
@@ -173,7 +177,8 @@ ChatGPT は、通常以下の流れで作業を補助します。
 - `docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md`
 - `docs/agent/POST_INVENTORY.md` がある場合は確認
 - `index.html`
-- 最新3件程度の `posts/*.html`
+- 最新記事の `posts/NNN.html`
+- 類似テーマが見つかった場合は、該当する `posts/NNN.html`
 - `assets/images/` の命名傾向
 - `.github/workflows/deploy-pages.yml`
 
@@ -194,7 +199,8 @@ ChatGPT は、通常以下の流れで作業を補助します。
 - commit メッセージ案
 - main push 後の確認URL
 
-GitHub連携が使える場合でも、ChatGPT は repository を直接編集せず、commit、push、PR作成、merge を行いません。
+GitHub連携が使える場合でも、通常の ChatGPT / 人間補助モードでは ChatGPT は repository を直接編集せず、commit、push、PR作成、merge を行いません。
+ただし、人間が明示的に GitHub へのファイル作成・更新を依頼した場合は、その依頼範囲に限って対応できます。
 
 ---
 
