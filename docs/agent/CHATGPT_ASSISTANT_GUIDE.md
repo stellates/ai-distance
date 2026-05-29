@@ -5,6 +5,8 @@
 人間が読む具体的な作業手順は `docs/manual/HUMAN_UPDATE_GUIDE.md` を参照します。
 Codex / coding agent に自動作業を任せる場合は `docs/agent/CODING_AGENT_SPEC.md` を参照します。
 
+ChatGPT / 人間補助モードで新記事作成を支援する場合は、作業の現在地を見失わないよう、`docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md` も参照します。
+
 ---
 
 ## 目的
@@ -23,6 +25,8 @@ ChatGPT は、GitHub や repository を直接編集しません。
 
 ChatGPT は、人間が迷わず作業できるように、具体的な内容と手順を提示します。
 
+新記事作成支援では、`docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md` に基づき、主要な返信で現在の進行状況を短く表示します。
+
 ChatGPT の役割は、以下です。
 
 - 必要な repository ファイルを確認する
@@ -32,6 +36,7 @@ ChatGPT の役割は、以下です。
 - 画像ファイル名と保存先を指定する
 - `posts/NNN.html` の内容を出力する
 - `index.html` に追加する記事カードブロックのみを出力する
+- `docs/agent/POST_INVENTORY.md` に追記する内容を出力する
 - 人間向けの具体的な作業指示を出す
 - ローカル確認手順を出す
 - 修正依頼に対して、どのファイルのどこをどう直すか示す
@@ -58,7 +63,9 @@ ChatGPT は、人間から明示依頼があった場合に、以下を行いま
 - `AGENTS.md` を確認する
 - `docs/manual/HUMAN_UPDATE_GUIDE.md` を必要に応じて確認する
 - この `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` を確認する
+- `docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md` を確認する
 - 既存記事、`index.html`、画像ファイル名の傾向を確認する
+- `docs/agent/POST_INVENTORY.md` がある場合は確認する
 - 記事番号を提案する
 - 記事タイトル案を作る
 - テーマの補足、狙い、避けたい方向を整理する
@@ -67,6 +74,7 @@ ChatGPT は、人間から明示依頼があった場合に、以下を行いま
 - 記事本文案を作る
 - `posts/NNN.html` の内容を出力する
 - `index.html` に追加する記事カードブロックだけを出力する
+- `docs/agent/POST_INVENTORY.md` に追記する内容を出力する
 - 人間向けの保存・貼り付け・確認手順を出す
 - commit メッセージ案を出す
 - GitHub Pages 確認URLを出す
@@ -80,6 +88,7 @@ ChatGPT は、人間から明示依頼があった場合に、以下を行いま
 - 確定画像を `assets/images/` に保存する
 - `posts/NNN.html` をローカル clone 上で作成する
 - `index.html` に追加カードブロックを貼り付ける
+- `docs/agent/POST_INVENTORY.md` に追記内容を反映する
 - VSCode / ブラウザでローカル確認する
 - 問題があれば ChatGPT に自然文で修正を依頼する
 - `git add` / `git commit` / `git push` を実行する
@@ -108,6 +117,7 @@ ChatGPT は、以下を守ります。
 - `index.html` の既存記事カードを削除しない
 - `index.html` の既存記事カードを短縮しない
 - `index.html` の既存記事カードを並べ替えない
+- 新記事追加時は、`docs/agent/POST_INVENTORY.md` への追記内容も必ず提示する
 
 ---
 
@@ -147,6 +157,8 @@ ChatGPT は、通常以下の流れで作業を補助します。
 7. git push（CI/CD）
 ```
 
+ただし、新記事作成支援の実際の進行管理は `docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md` を基準にします。
+
 各工程で、ChatGPT は「次に人間が何をすればよいか」を具体的に示します。
 
 ---
@@ -158,10 +170,14 @@ ChatGPT は、通常以下の流れで作業を補助します。
 - `AGENTS.md`
 - `docs/manual/HUMAN_UPDATE_GUIDE.md`
 - `docs/agent/CHATGPT_ASSISTANT_GUIDE.md`
+- `docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md`
+- `docs/agent/POST_INVENTORY.md` がある場合は確認
 - `index.html`
 - 最新3件程度の `posts/*.html`
 - `assets/images/` の命名傾向
 - `.github/workflows/deploy-pages.yml`
+
+新記事テーマを提案する前に、`docs/agent/POST_INVENTORY.md` または全 `posts/*.html` を確認し、既存記事との重複・類似テーマをチェックします。
 
 確認後、以下を提案または出力します。
 
@@ -173,6 +189,7 @@ ChatGPT は、通常以下の流れで作業を補助します。
 - 画像生成プロンプト
 - 新記事HTML
 - `index.html` 追加カードブロック
+- `docs/agent/POST_INVENTORY.md` 追記内容
 - 人間が実施する確認項目
 - commit メッセージ案
 - main push 後の確認URL
@@ -415,6 +432,23 @@ ChatGPT が出力してよいのは、追加する記事カードブロックの
 `index.html` 全文を置き換えないでください。
 ```
 
+### POST_INVENTORY.md 更新補助
+
+新記事を追加する場合は、`docs/agent/POST_INVENTORY.md` に追記する内容も必ず提示します。
+
+追記内容には、少なくとも以下を含めます。
+
+- 記事番号
+- タイトル
+- 公開日
+- テーマ
+- 今回の距離感
+- タグ
+- 似ている既存記事
+- 重複しない理由、または重複回避メモ
+
+`POST_INVENTORY.md` がまだ存在しない場合は、作成を提案します。
+
 ---
 
 ## 5. 最終確認
@@ -444,6 +478,7 @@ http://localhost:8000/
 - 「説教臭さ」が強すぎないか
 - `index.html` の既存記事カードが消えていないか
 - 既存記事へのリンクが壊れていないか
+- `docs/agent/POST_INVENTORY.md` に新記事が反映されているか
 
 ---
 
@@ -487,6 +522,7 @@ ChatGPT は、人間が迷わないように、以下を具体的に書きます
 - 保存先
 - 貼り付けるファイル名
 - 貼り付け位置
+- `docs/agent/POST_INVENTORY.md` に追記する内容
 - 既存ファイルを変更してよい範囲
 - 変更してはいけない範囲
 - ローカル確認手順
