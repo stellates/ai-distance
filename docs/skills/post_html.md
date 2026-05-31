@@ -1,0 +1,147 @@
+# post_html.md
+
+## posts/NNN.html 作成補助
+
+- 記事本文は短く、画像の下に添えるメモと「今回の距離感」を中心にする
+- `posts/NNN.html` は、ChatGPT が全文を出力
+- 出力は必ず大きなコードブロックで囲み、ユーザーがコピーしやすくする
+- HTMLを作る場合は、既存記事の構造を踏襲する
+
+人間への指示例：
+
+```text
+以下の内容で `posts/NNN.html` を新規作成してください。
+既存の `posts/XXX.html` は変更しないでください。
+```
+
+守ること：
+
+- class名を変えない
+- 余計なdivを増やさない
+- 相対パスを維持する
+- `posts/NNN.html` では画像パスを `../assets/images/...` にする
+- OGP画像がある場合は新記事画像に合わせる
+- 前後記事リンクがある場合は整合させる
+- 既存記事本文を勝手に改変しない
+
+## 既存サンプルHTML
+
+```html
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>#027 急に横文字やめて（笑） | AIとのちょうどいい距離感</title>
+  <meta name="description" content="AIは親切なつもりでQOLやUXなどの略語を使うことがあります。分からない時は『略語なしで説明して』と頼めば大丈夫です。" />
+  <meta property="og:title" content="#027 急に横文字やめて（笑）" />
+  <meta property="og:description" content="AIが急に横文字や略語を使い始めて、話が分からなくなることがあります。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="../assets/images/027-stop-buzzwords.png" />
+  <link rel="stylesheet" href="../styles.css?v=20260505" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="AIとのちょうどいい距離感 トップへ">
+      <span class="brand-mark">AI</span>
+      <span class="brand-text">AIとのちょうどいい距離感</span>
+    </a>
+  </header>
+
+  <main class="post-layout">
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="../index.html">トップ</a>
+      <span>/</span>
+      <span>#027</span>
+    </nav>
+
+    <article class="post">
+      <header class="post-header">
+        <p class="post-number">#027</p>
+        <p class="post-date"><time datetime="2026-05-30">公開日 2026/5/30</time></p>
+        <h1>急に横文字やめて（笑）</h1>
+        <p class="post-subtitle">なんとなく分かった気になるけど、実は止まってました。</p>
+      </header>
+
+      <figure class="main-visual">
+        <img src="../assets/images/027-stop-buzzwords.png" alt="AIがQOLやUXなどの略語を連発し、人間が困惑している4コマ漫画" />
+      </figure>
+
+      <section class="memo">
+        <h2>メモ</h2>
+
+        <p>
+          AIに相談していると、たまに急に横文字が増えることがあります。
+        </p>
+
+        <p>
+          QOL、UX、KPI、PDCA。
+          聞いたことはあるけれど、説明できるかと言われると少し怪しい。
+        </p>
+
+        <p>
+          AIは意地悪で使っているわけではありません。
+        </p>
+
+        <p>
+          むしろ「よく使われる言葉だから分かりやすいはず」と思って使っていることが多いです。
+        </p>
+
+        <p>
+          ただ、読む側からすると話が止まります。
+        </p>
+
+        <p>
+          内容を理解する前に、
+          「QOLって何だっけ？」
+          「UXってどっちだっけ？」
+          が始まってしまう。
+        </p>
+
+        <p>
+          すると、説明の内容より略語の解読がメインになってしまいます。
+        </p>
+
+        <p>
+          そんな時は遠慮なく、
+          「略語なしで説明して」
+          と頼んで大丈夫です。
+        </p>
+
+        <p>
+          AIは意外と素直なので、
+          「暮らしが快適になる」
+          「使いやすくなる」
+          のように言い換えてくれます。
+        </p>
+
+        <p>
+          分からない略語が出てきたら、自分が悪いわけではありません。
+          単に説明の言葉選びの問題かもしれません。
+        </p>
+      </section>
+
+      <section class="memo soft">
+        <h2>今回の距離感</h2>
+        <p>
+          AIは略語をよく使う。分からなかったら「略語なしで説明して」と頼んで大丈夫。
+        </p>
+      </section>
+
+      <div class="tags" aria-label="タグ">
+        <span>略語</span>
+        <span>説明</span>
+        <span>プロンプト</span>
+      </div>
+    </article>
+
+    <p class="back-link"><a href="../index.html">← 一覧へ戻る</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>© ai-distance</p>
+  </footer>
+</body>
+</html>
+```

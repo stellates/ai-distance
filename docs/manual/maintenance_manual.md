@@ -26,22 +26,7 @@ docs/agent/post_inventory.md
 ```text
 @GitHub stellates/ai-distance
 
-AGENTS.md を読んで、ChatGPT / 人間補助モードで進めてください。
-
-以下を参照してください。
-- docs/manual/HUMAN_UPDATE_GUIDE.md
-- docs/agent/chatgpt_assistant_spec.md
-- docs/agent/workflow.md
-- docs/agent/post_inventory.md
-
-新しい記事追加を手伝ってください。
-
-あなたは通常、repository を直接編集しないでください。
-ただし、私が明示的に GitHub へのファイル作成・更新を依頼した場合は、その依頼範囲に限って対応して構いません。
-
-commit、push、PR作成、merge は行わないでください。
-
-まず、進行状況チェックリストを表示し、post_inventory.md を確認してから、テーマ重複チェックに進んでください。
+AGENTS.md を読んで、記事作成支援をお願いします。
 ```
 
 テーマがすでに決まっている場合は、末尾に以下を追加します。
