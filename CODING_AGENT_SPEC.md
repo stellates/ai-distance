@@ -1,4 +1,4 @@
-# CODING_AGENT_SPEC.md
+# coding_agent_spec.md
 
 ## 目的
 

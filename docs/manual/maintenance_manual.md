@@ -7,9 +7,9 @@
 固定インストラクションを渡した後は、ChatGPT が以下のファイルを参照しながら作業を誘導します。
 
 ```text
-docs/agent/CHATGPT_ASSISTANT_GUIDE.md
-docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md
-docs/agent/POST_INVENTORY.md
+docs/agent/chatgpt_assistant_spec.md
+docs/agent/workflow.md
+docs/agent/post_inventory.md
 ```
 
 そのため、この手順書の主な役割は、最初の依頼文を迷わず投げられるようにすることです。
@@ -26,22 +26,7 @@ docs/agent/POST_INVENTORY.md
 ```text
 @GitHub stellates/ai-distance
 
-AGENTS.md を読んで、ChatGPT / 人間補助モードで進めてください。
-
-以下を参照してください。
-- docs/manual/HUMAN_UPDATE_GUIDE.md
-- docs/agent/CHATGPT_ASSISTANT_GUIDE.md
-- docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md
-- docs/agent/POST_INVENTORY.md
-
-新しい記事追加を手伝ってください。
-
-あなたは通常、repository を直接編集しないでください。
-ただし、私が明示的に GitHub へのファイル作成・更新を依頼した場合は、その依頼範囲に限って対応して構いません。
-
-commit、push、PR作成、merge は行わないでください。
-
-まず、進行状況チェックリストを表示し、POST_INVENTORY.md を確認してから、テーマ重複チェックに進んでください。
+AGENTS.md を読んで、記事作成支援をお願いします。
 ```
 
 テーマがすでに決まっている場合は、末尾に以下を追加します。
@@ -61,7 +46,7 @@ ChatGPT が出したテーマ案がしっくりこない場合は、以下のよ
 
 ```text
 提案されたテーマとは別のテーマ案を出してください。
-ただし、POST_INVENTORY.md を確認し、既存記事との重複を避けてください。
+ただし、post_inventory.md を確認し、既存記事との重複を避けてください。
 似ている既存記事があれば、記事番号と違いも示してください。
 ```
 
@@ -104,7 +89,7 @@ Gemini風の配色にしたいです。
 
 以下の手順は、以前の運用で使っていた詳細手順です。
 
-現在の通常運用では、最初の固定インストラクションを渡した後、ChatGPT が `docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md` に沿って進行状況を示しながら誘導します。
+現在の通常運用では、最初の固定インストラクションを渡した後、ChatGPT が `docs/agent/workflow.md` に沿って進行状況を示しながら誘導します。
 
 そのため、人間は以降の旧手順を毎回読む必要はありません。
 流れを理解したい場合や、ChatGPT の案内が不十分な場合の参考として使ってください。
@@ -123,8 +108,8 @@ Gemini風の配色にしたいです。
 - 画像の生成・最終確認は人間が行う
 - ファイル作成、画像配置、commit、push は人間が行う
 
-詳細な ChatGPT 側の支援ルールは `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` を参照します。
-Codex / coding agent に自動作業を任せる場合は `docs/agent/CODING_AGENT_SPEC.md` を参照します。
+詳細な ChatGPT 側の支援ルールは `docs/agent/chatgpt_assistant_spec.md` を参照します。
+Codex / coding agent に自動作業を任せる場合は `docs/agent/coding_agent_spec.md` を参照します。
 Codex を使う人間向け手順は `docs/manual/CODEX_UPDATE_GUIDE.md` を参照します。
 
 ---
@@ -167,7 +152,7 @@ ChatGPT に、まず以下のように依頼します。
 ```text
 @GitHub stellates/ai-distance
 
-AGENTS.md を読んで、docs/agent/CHATGPT_ASSISTANT_GUIDE.md に従ってください。
+AGENTS.md を読んで、docs/agent/chatgpt_assistant_spec.md に従ってください。
 
 テーマ「ここにテーマを書く」で、新しい記事追加を手伝ってください。
 

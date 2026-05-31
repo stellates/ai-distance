@@ -4,7 +4,7 @@
 人間が ChatGPT（ブラウザ版 / アプリ版）を使いながら
 `ai-distance` に新しい記事を追加し、GitHub Pages に公開するための手順です。
 
-通常運用では `CODING_AGENT_SPEC.md` を利用した Codex 自動運用を優先します。
+通常運用では `coding_agent_spec.md` を利用した Codex 自動運用を優先します。
 このファイルは「人力fallback運用手順」です。
 
 ---
@@ -484,7 +484,7 @@ https://stellates.github.io/ai-distance/posts/002.html
 
 このファイルは「人力fallback運用」のための手順です。
 
-通常運用では、`CODING_AGENT_SPEC.md` を利用した
+通常運用では、`coding_agent_spec.md` を利用した
 Codex 自動運用を優先します。
 
 Codex 制限時や、最終調整を人間が丁寧に行いたい場合に、

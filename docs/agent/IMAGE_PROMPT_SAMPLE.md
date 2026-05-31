@@ -1,4 +1,4 @@
-# IMAGE_PROMPT_SAMPLE.md
+# image_prompt_sample.md
 
 このファイルは、「AIとのちょうどいい距離感」シリーズの画像生成プロンプト完成サンプルです。
 
