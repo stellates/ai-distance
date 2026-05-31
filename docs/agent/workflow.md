@@ -1,4 +1,4 @@
-# CHATGPT_WORKFLOW_CHECKLIST.md
+# workflow.md
 
 このファイルは、ChatGPT が「AIとのちょうどいい距離感」の新記事追加を人間と一緒に進めるときの工程管理チェックリストです。
 
@@ -32,7 +32,7 @@ ChatGPT は、新記事作成支援の主要な返信で、現在の進行状況
 - [ ] 5. 記事構成設計
 - [ ] 6. posts/NNN.html草案作成
 - [ ] 7. index.html追加カード草案作成
-- [ ] 8. POST_INVENTORY.md追記草案作成
+- [ ] 8. post_inventory.md追記草案作成
 - [ ] 9. 画像生成設計
 - [ ] 10. 画像生成・確認
 - [ ] 11. 最終HTML調整
@@ -71,11 +71,11 @@ ChatGPT は、新記事作成支援の主要な返信で、現在の進行状況
 完了条件:
 
 - `index.html` で最新記事番号を確認している
-- `posts/` の既存記事、または `docs/agent/POST_INVENTORY.md` を確認している
+- `posts/` の既存記事、または `docs/agent/post_inventory.md` を確認している
 - 既存記事の番号、タイトル、テーマ、今回の距離感、タグの傾向を把握している
 - 最新3記事だけでなく、過去記事との重複確認に必要な情報を確認している
 
-`POST_INVENTORY.md` が存在しない、または古い場合は、推測で進めず、作成・更新を提案します。
+`post_inventory.md` が存在しない、または古い場合は、推測で進めず、作成・更新を提案します。
 
 ---
 
@@ -159,16 +159,16 @@ ChatGPT は、新記事作成支援の主要な返信で、現在の進行状況
 
 ---
 
-### 8. POST_INVENTORY.md追記草案作成
+### 8. post_inventory.md追記草案作成
 
 完了条件:
 
-- `docs/agent/POST_INVENTORY.md` に追記する1行、または1ブロックを提示している
+- `docs/agent/post_inventory.md` に追記する1行、または1ブロックを提示している
 - 記事番号、タイトル、公開日、テーマ、今回の距離感、タグを含んでいる
 - 似ている既存記事や重複回避メモを含んでいる
 - 新記事公開時に棚卸しが更新される状態になっている
 
-`POST_INVENTORY.md` は、新記事追加時の必須成果物として扱います。
+`post_inventory.md` は、新記事追加時の必須成果物として扱います。
 
 ---
 
@@ -183,7 +183,7 @@ ChatGPT は、新記事作成支援の主要な返信で、現在の進行状況
 - 日本語文字、縦長SNS向け、かわいいAIキャラクター、軽い自虐、教育感などの条件を含めている
 - 吹き出しの文字量が多すぎないよう制御している
 - 記事タイトル、本文メモ、今回の距離感と画像内容がズレていない
-- `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` の「画像生成プロンプトの標準ルール」を反映している
+- `docs/agent/chatgpt_assistant_spec.md` の「画像生成プロンプトの標準ルール」を反映している
 - 画風固定ルールを含めている
 - キャラクター一貫性ルールを含めている
 - 衣装・小物の「原則固定、明示時のみ変更可」ルールを含めている
@@ -263,7 +263,7 @@ http://localhost:8000/
 完了条件:
 
 - `git status` で変更ファイルを確認している
-- `posts/NNN.html`、`index.html`、`docs/agent/POST_INVENTORY.md`、画像ファイルが必要に応じて含まれている
+- `posts/NNN.html`、`index.html`、`docs/agent/post_inventory.md`、画像ファイルが必要に応じて含まれている
 - commit メッセージが決まっている
 - 人間が `main` に push している
 - GitHub Actions / GitHub Pages の反映を確認している

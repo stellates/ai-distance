@@ -37,7 +37,7 @@ and share-alike conditions.
 
 ### ChatGPTで行う場合
 
-[🗒️ 通常更新手順書](docs/manual/HUMAN_UPDATE_GUIDE.md)
+[🗒️ 通常更新手順書](docs/manual/maintenance_manual.md)
 
 - Codexは利用枠に限りがあるため、通常はこちらの手順を推奨します。
 - 手順に従ってChatGPTを起動すると、ワークフロー形式で作業を補助します。
@@ -46,7 +46,7 @@ and share-alike conditions.
 
 ### Codexで行う場合
 
-[🗒️ 半自動更新手順書](docs/manual/CODEX_UPDATE_GUIDE.md)
+[🗒️ 半自動更新手順書](docs/manual/codex_maintenance_manual.md)
 
 - Codex利用枠に余裕があり、作業時間を短縮したい場合はこちらを利用してください。
 - 2026/5/31時点では、1回の実行でChatGPT Plusの5時間利用枠をおおむね5%前後消費します。

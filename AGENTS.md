@@ -1,31 +1,68 @@
 # AGENTS.md
 
-このリポジトリは「AIとのちょうどいい距離感」の記事を管理するためのものです。
+## 共通ルール
 
-作業者が ChatGPT、Codex、その他 coding agent のいずれであっても、
-まずこのファイルを読み、作業モードを判断してください。
+### 作品概要・ポリシー
+
+- シリーズ名は「AIとのちょうどいい距離感」
+- 生成AIを過信させない
+- 生成AIを怖がらせすぎない
+- 説教臭くしない
+- 軽い、ぼやき調、自虐気味、でも教育的なトーンを維持する
+- ITに詳しくない一般ユーザーにも伝わる表現にする
+- 1記事1テーマにする
+
+### 新記事作成・既存記事修正作業時のルール
+
+#### シリーズ保持ポリシー
+
+- 既存記事の雰囲気、HTML構造、CSS class、画像配置を尊重する
+
+#### ディレクトリ・ファイル規則
+- 画像は `assets/images/` に置く
+- 記事HTMLは `posts/NNN.html` に置く
+- 記事番号は3桁ゼロ埋めにする
+
+#### 必要ファイルが確認できない場合
+
+- 作業で参照すべきファイルが見つからない場合、推測で作業を進めず、GitHubリポジトリ内のファイルパスもしくは対象ファイルの添付をユーザーに依頼すること
+
+#### 禁止事項
+- `styles.css` は原則変更しない
+- `README.md`、`LICENSE`、`LICENSE-JA.md` は原則変更しない
 
 ## 作業モード
 
+まず、以下のモード判断ルールに従って作業モードを判断してください。
+
+### モード判断ルール
+
+ユーザーが明示した場合は、その指示を最優先してください。
+
+明示がない場合は、以下のように判断してください。
+
+###### 記述見直し：判定基準と振り分けモード指定だけ記述にする---ここから
+- ChatGPT との通常会話で依頼された場合は、原則として `docs/agent/chatgpt_assistant_spec.md`、`docs/agent/workflow.md` を使う
+- `@GitHub` 経由で更新作業を依頼された場合も、原則として `docs/agent/chatgpt_assistant_spec.md`、`docs/agent/workflow.md` を使い、差分出力・人間作業補助として進める
+- Codex、coding agent、自動実装、commit まで依頼された場合は `docs/agent/coding_agent_spec.md` を使う
+- 判断に迷う場合は、勝手に大きな変更をせず、`docs/agent/chatgpt_assistant_spec.md` ベースで支援する
+###### 記述見直し：判定基準と振り分けモード指定だけ記述にする---ここまで
+
 ### 1. ChatGPT / 人間補助モード
 
-以下の場合は、このモードを使います。
-
-- 平常時
-- Codex 利用枠が枯渇している時
-- 人間が VSCode / Git / GitHub Pages を使って作業する時
-- ChatGPT は文章作成、構成案、HTML差分作成、確認補助を担当する時
+#### 作業ルール
 
 このモードでは、必ず以下を参照してください。
 
 ```text
-docs/manual/HUMAN_UPDATE_GUIDE.md
-docs/agent/CHATGPT_ASSISTANT_GUIDE.md
-docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md
+docs/agent/chatgpt_assistant_spec.md
+docs/agent/workflow.md
 ```
 
-ChatGPT は、`docs/manual/HUMAN_UPDATE_GUIDE.md` の手順と `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` の支援ルールに従い、
-必要に応じて `docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md` の進行状況を表示しながら、
+#### 役割
+
+ChatGPT は、`docs/agent/chatgpt_assistant_spec.md` の支援ルールに従い、
+必要に応じて `docs/agent/workflow.md` の進行状況を表示しながら、
 人間がローカル clone 上で作業しやすい形で支援してください。
 
 特に以下を優先してください。
@@ -40,59 +77,7 @@ ChatGPT は、`docs/manual/HUMAN_UPDATE_GUIDE.md` の手順と `docs/agent/CHATG
 - 人間がローカル確認するための手順を短く明確に示す
 - `README.md`、`LICENSE`、`LICENSE-JA.md` を変更対象にしない
 
-GitHub 連携や検索で必要ファイルを確認できない場合は、推測で作業を進めず、正しいファイル名・パス、Repository Map、対象ファイルの添付、またはファイル内容の貼り付けを人間に依頼してください。
-
-### 2. Codex / 自動作業モード
-
-以下の場合は、このモードを使います。
-
-- 業務多忙時
-- 省力化が必要な時
-- Codex または coding agent に実装・生成・更新を任せる時
-- テーマだけ渡して、新記事追加を自動化したい時
-
-このモードでは、必ず以下を参照してください。
-
-```text
-docs/manual/CODEX_UPDATE_GUIDE.md
-docs/agent/CODING_AGENT_SPEC.md
-```
-
-Codex / coding agent は、`docs/agent/CODING_AGENT_SPEC.md` の内容に従い、
-新記事作成から commit までを可能な範囲で自動実行してください。
-
-人間が Codex を使って更新する手順は `docs/manual/CODEX_UPDATE_GUIDE.md` を参照してください。
-
-## 判断ルール
-
-ユーザーが明示した場合は、その指示を最優先してください。
-
-明示がない場合は、以下のように判断してください。
-
-- ChatGPT との通常会話で依頼された場合は、原則として `docs/manual/HUMAN_UPDATE_GUIDE.md`、`docs/agent/CHATGPT_ASSISTANT_GUIDE.md`、`docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md` を使う
-- `@GitHub` 経由で更新作業を依頼された場合も、原則として `docs/manual/HUMAN_UPDATE_GUIDE.md`、`docs/agent/CHATGPT_ASSISTANT_GUIDE.md`、`docs/agent/CHATGPT_WORKFLOW_CHECKLIST.md` を使い、差分出力・人間作業補助として進める
-- Codex、coding agent、自動実装、commit まで依頼された場合は `docs/agent/CODING_AGENT_SPEC.md` を使う
-- 判断に迷う場合は、勝手に大きな変更をせず、`docs/manual/HUMAN_UPDATE_GUIDE.md` と `docs/agent/CHATGPT_ASSISTANT_GUIDE.md` ベースで支援する
-
-## 共通ルール
-
-どちらのモードでも、以下を守ってください。
-
-- シリーズ名は「AIとのちょうどいい距離感」
-- 生成AIを過信させない
-- 生成AIを怖がらせすぎない
-- 説教臭くしない
-- 軽い、ぼやき調、自虐気味、でも教育的なトーンを維持する
-- ITに詳しくない一般ユーザーにも伝わる表現にする
-- 1記事1テーマにする
-- 既存記事の雰囲気、HTML構造、CSS class、画像配置を尊重する
-- `styles.css` は原則変更しない
-- `README.md`、`LICENSE`、`LICENSE-JA.md` は原則変更しない
-- 画像は `assets/images/` に置く
-- 記事HTMLは `posts/NNN.html` に置く
-- 記事番号は3桁ゼロ埋めにする
-
-## ChatGPT 向け省力指示
+#### 出力するもの
 
 ChatGPT がこのリポジトリの更新を補助する場合は、
 毎回すべてを説明しすぎず、人間が次に行う作業がすぐ分かる形で出力してください。
@@ -106,14 +91,14 @@ ChatGPT がこのリポジトリの更新を補助する場合は、
 - 画像生成プロンプト
 - 作成する `posts/NNN.html` の内容
 - `index.html` に追加する記事カードブロック
-- `docs/agent/POST_INVENTORY.md` に追記する内容
+- `docs/agent/post_inventory.md` に追記する内容
 - 貼り付け位置
 - ローカル確認手順
 - 確認チェックリスト
 - git 操作案内
 - main push 後の確認URL
 
-## ChatGPT モードの安全ルール
+#### 安全ルール
 
 ChatGPT / 人間補助モードでは、以下を守ってください。
 
@@ -128,13 +113,30 @@ ChatGPT / 人間補助モードでは、以下を守ってください。
 - 人間の確認前に GitHub Pages 本番環境へ反映される操作をしない
 - `index.html` 全文を生成しない
 - `index.html` の既存記事カードを削除・短縮・並べ替えしない
-- 新記事追加時は、`docs/agent/POST_INVENTORY.md` の追記内容も提示する
+- 新記事追加時は、`docs/agent/post_inventory.md` の追記内容も提示する
 - 必要ファイルを確認できない場合は推測せず、人間にファイル名・パス・実物を求める
 
-## Codex 向け省力指示
+### 2. Codex / 自動作業モード
+
+#### 作業ルール
+
+このモードでは、必ず以下を参照してください。
+
+```text
+docs/agent/coding_agent_spec.md
+```
+
+#### 役割
+
+Codex / coding agent は、`docs/agent/coding_agent_spec.md` の内容に従い、
+新記事作成から commit までを可能な範囲で自動実行してください。
+
+#### 実行すること
 
 Codex または coding agent が作業する場合は、
-`docs/agent/CODING_AGENT_SPEC.md` を最優先してください。
+`docs/agent/coding_agent_spec.md` を最優先してください。
+
+#### 安全ルール
 
 特に以下を必ず守ってください。
 
