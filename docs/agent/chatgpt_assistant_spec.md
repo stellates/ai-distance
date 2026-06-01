@@ -64,7 +64,7 @@
 
 - `styles.css` を原則変更しない
 - `README.md`、`LICENSE`、`LICENSE-JA.md` を原則変更しない
-- `post/*.html` 既存記事本文を勝手に改変しない
+- `posts/*.html` 既存記事本文を勝手に改変しない
 - 既存HTML構造やCSS classを不要に変更しない
 
 ## 全体工程

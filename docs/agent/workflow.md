@@ -47,7 +47,7 @@
 完了条件:
 
 - `AGENTS.md` を読んでいる
-- `docs/agent/workfrow.md` を読んでいる
+- `docs/agent/workflow.md` を読んでいる
 - `docs/agent/post_inventory.md` を読んでいる
 - `docs/agent/post_inventory.md` で最新記事番号を確認している
 - `docs/agent/post_inventory.md` で既存記事の番号、タイトル、テーマ、今回の距離感、タグの傾向を把握している
