@@ -1,3 +1,4 @@
+
 # coding_agent_spec.md
 
 ## 目的

@@ -1,3 +1,4 @@
+
 # chatgpt_assistant_spec.md
 
 ## 役割
