@@ -15,12 +15,12 @@
 ```text
 start
 → theme
-→ html
-→ index-card
-→ inventory
 → image-design
 → image-prompt
 → image
+→ inventory
+→ html
+→ index-card
 → verify
 → publish
 ```

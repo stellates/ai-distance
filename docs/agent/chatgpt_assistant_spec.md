@@ -37,6 +37,7 @@ GitHub connectorが使える場合の基本モード。
 
 #### ChatGPT
 
+- GitHubに今回の記事用の作業ブランチを作成する（例：`agent/article-NNN`）
 - GitHub上の作業ブランチでテキストと状態ファイルを確認・更新する
 - `docs/agent/designs/NNN_design.md` に設計メモと進行状態を残す
 - theme、記事HTML、indexカード、inventoryの差分を作る
