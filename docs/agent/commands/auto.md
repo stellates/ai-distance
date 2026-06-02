@@ -29,6 +29,7 @@ Codex / ローカル環境で、記事追加をローカル作業ツリー上に
 ```text
 generate
 → update design
+→ convert image to WebP
 → verify
 → fix
 → verify

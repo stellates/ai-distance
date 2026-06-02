@@ -27,7 +27,10 @@
 ## 状態更新
 
 - 合意内容を `Theme Design` に反映する
-- `Control Block` の次の推奨コマンドを `/html NNN` にする
+- `Control Block` の `steps.theme` を `approved` にする
+- `Control Block` の `current_state` を `html` にする
+- `Control Block` の `next_recommended_command` を `/html NNN` にする
+- GitHub連携ChatGPTモードでは、対象記事のdesignを作業ブランチ上で更新する
 
 ## 注意
 

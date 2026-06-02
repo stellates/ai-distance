@@ -211,14 +211,16 @@ Vision機能で実画像レビューを行うこと。
 
 # 画像ファイル名ルール
 
-以下形式：
+画像生成元はPNGでもよいが、Web配信用にはWebPへ変換して配置する。
+WebP quality 75〜80を目安にし、既存記事のPNGは変更しない。
+新規記事の配信用ファイル名は以下形式：
 
-NNN-kebab-case-topic.png
+NNN-kebab-case-topic.webp
 
 例：
 
-- 014-fake-paper-citation.png
-- 015-overconfident-ai.png
+- 030-copy-paste-boss-mode.webp
+- 031-short-topic-name.webp
 
 英単語は3〜5語程度に抑えること。
 

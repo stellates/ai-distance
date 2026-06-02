@@ -8,6 +8,7 @@ on:
       - '**.html'
       - '**.css'
       - '**.png'
+      - '**.webp'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 

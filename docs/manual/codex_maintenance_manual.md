@@ -179,13 +179,14 @@ python3 -m http.server 8000
 
 ## 7. 問題がなければ push する
 
-ローカル確認で問題がなければ、人間が `main` に push します。
+ローカル確認で問題がなければ、人間が作業ブランチを push します。
 
 ```bash
 git push
 ```
 
-push 後、GitHub Pages のデプロイが実行されます。
+作業ブランチを `main` へ反映するかは人間が判断します。
+`main` へ反映後、GitHub Pages のデプロイが実行されます。
 
 ---
 
@@ -197,6 +198,7 @@ push 後、GitHub Pages のデプロイが実行されます。
 *.html
 *.css
 *.png
+*.webp
 .github/workflows/deploy-pages.yml
 ```
 
@@ -226,19 +228,20 @@ https://stellates.github.io/ai-distance/posts/NNN.html
 assets/images/
 ```
 
+画像生成元がPNGの場合は、WebP quality 75〜80を目安に変換してから配置します。
+既存記事のPNGは変更しません。
+
 ファイル名は以下の形式にします。
 
 ```text
-NNN-topic-name.png
+NNN-topic-name.webp
 ```
 
 例：
 
 ```text
-001-token-prediction.png
-002-fake-citation.png
-003-confident-number.png
-004-web-search-needed.png
+030-copy-paste-boss-mode.webp
+031-short-topic-name.webp
 ```
 
 別ディレクトリは作らないようにします。

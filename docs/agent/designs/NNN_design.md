@@ -10,7 +10,10 @@ next_recommended_command: /theme NNN
 steps:
   theme: pending
   html: pending
+  index-card: pending
   inventory: pending
+  image-design: pending
+  image-prompt: pending
   image: pending
   verify: pending
   publish: pending
@@ -42,9 +45,9 @@ similar_or_avoid:
 
 ```yaml
 post_path: posts/NNN.html
-image_filename:
-image_path: ../assets/images/
-og_image: ../assets/images/
+image_filename: NNN-kebab-case-topic.webp
+image_path: ../assets/images/NNN-kebab-case-topic.webp
+og_image: ../assets/images/NNN-kebab-case-topic.webp
 title:
 subtitle:
 description:
@@ -56,7 +59,7 @@ tags: []
 
 ```yaml
 href: ./posts/NNN.html
-image_src: ./assets/images/
+image_src: ./assets/images/NNN-kebab-case-topic.webp
 alt:
 number: "#NNN"
 date: YYYY-MM-DD
@@ -74,7 +77,7 @@ title:
 theme:
 core_joke:
 learning:
-image_filename:
+image_filename: NNN-kebab-case-topic.webp
 panels:
   1:
   2:
@@ -86,6 +89,8 @@ panels:
 
 ```yaml
 reference: docs/agent/image_prompt_sample.md
+prompt_status: pending
+prompt_text: |
 prompt_order:
   - シリーズ基本設定
   - 全体レイアウト

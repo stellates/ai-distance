@@ -26,3 +26,10 @@
 - `similar_or_avoid` を省略しない
 - 既存テーマとの重複回避に使える短さにする
 - designとinventoryで値を二重管理せず、`Inventory Entry` を入力元にする
+
+## 状態更新
+
+- `Control Block` の `steps.inventory` を `completed` にする
+- `Control Block` の `current_state` を `image-design` にする
+- `Control Block` の `next_recommended_command` を `/image-design NNN` にする
+- GitHub連携ChatGPTモードでは、棚卸し行と対象記事のdesignを作業ブランチ上で更新する

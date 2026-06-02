@@ -30,3 +30,11 @@
 - 修正が必要なら、対象ファイルと直す値を示す
 - `Verification Log` と `Control Block` の更新内容、または更新案を出す
 - 問題がなければ、次は人間によるpublish判断だと案内する
+
+## 状態更新
+
+- 問題がなければ `Verification Log.status` を `passed` にする
+- 問題がなければ `Control Block` の `steps.verify` を `passed` にする
+- 問題がなければ `Control Block` の `current_state` を `publish` にする
+- 問題がなければ `Control Block` の `next_recommended_command` を `publish判断` にする
+- 問題があれば該当stateへ戻し、修正内容を `Verification Log.fixes` に残す

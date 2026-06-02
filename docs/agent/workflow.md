@@ -16,7 +16,10 @@
 start
 → theme
 → html
+→ index-card
 → inventory
+→ image-design
+→ image-prompt
 → image
 → verify
 → publish
@@ -26,9 +29,12 @@ start
 |---|---|---|---|
 | `start` | 対象記事と作業ブランチを決める | `NNN_design.md` | `/theme NNN` |
 | `theme` | 1記事1テーマで設計を固める | `Theme Design` | `/html NNN` |
-| `html` | 記事固有のHTMLとindexカード差分を作る | `HTML Artifacts`, `Index Card` | `/inventory NNN` |
-| `inventory` | 棚卸し行を作る | `Inventory Entry` | `/image NNN` |
-| `image` | 画像設計、命名、配置を揃える | `Image Design`, `Image Prompt Notes`, 画像ファイル | `/verify NNN` |
+| `html` | 記事固有のHTML差分を作る | `HTML Artifacts` | `/index-card NNN` |
+| `index-card` | indexカード差分を作る | `Index Card` | `/inventory NNN` |
+| `inventory` | 棚卸し行を作る | `Inventory Entry` | `/image-design NNN` |
+| `image-design` | 画像の内容と命名を固める | `Image Design` | `/image-prompt NNN` |
+| `image-prompt` | 画像生成用プロンプトを固める | `Image Prompt Notes` | `/image NNN` |
+| `image` | 採用画像の配置とWebPを確認する | WebP画像ファイル | `/verify NNN` |
 | `verify` | design state と repository state を照合する | `Verification Log` | publish判断 または修正 |
 | `publish` | 人間が最終反映を判断する | merge、公開確認 | 完了 |
 
