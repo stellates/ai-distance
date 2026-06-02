@@ -23,6 +23,9 @@
 3. 必要に応じてrepository stateから食い違いを推定する。
 4. 現在地と、次にすすめるコマンドを1つ返す。
 
+次工程は `docs/agent/workflow.md` の基本遷移に従う。
+`next_recommended_command` とrepository stateが矛盾する場合は、先に `/verify NNN` をすすめる。
+
 ## 出力
 
 次のコマンドは、そのままコピペできる形で出す。

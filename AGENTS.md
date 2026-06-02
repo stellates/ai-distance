@@ -90,6 +90,24 @@
 - 本ファイルで指定されたファイルを確認せず、推測で進行すること
 - 指定ファイルの内容が曖昧で作業方針が定まらない場合に、確認せず作業を進めること
 
+### コマンドルーター
+
+記事追加・更新作業で以下のコマンドを受け取った場合は、対応するファイルを必ず読み込んでから作業する。
+対応ファイルを読み込めない場合は作業を停止し、ユーザーに所在を確認する。
+
+| コマンド | 必須参照ファイル |
+|---|---|
+| `/navi` | `docs/agent/commands/navi.md` |
+| `/theme` | `docs/agent/commands/theme.md` |
+| `/html` | `docs/agent/commands/html.md` |
+| `/index-card` | `docs/agent/commands/index-card.md` |
+| `/inventory` | `docs/agent/commands/inventory.md` |
+| `/image-design` | `docs/agent/commands/image-design.md` |
+| `/image-prompt` | `docs/agent/commands/image-prompt.md` |
+| `/image` | `docs/agent/commands/image.md` |
+| `/verify` | `docs/agent/commands/verify.md` |
+| `/auto` | `docs/agent/commands/auto.md` |
+
 ## 作業モード
 
 まず、ユーザーの依頼内容から作業種別を判定する。
