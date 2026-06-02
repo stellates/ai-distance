@@ -1,4 +1,4 @@
-# thema.md
+# theme.md
 
 新記事テーマを提案する前に、`docs/agent/post_inventory.md` を確認し、既存記事との重複・類似テーマをチェックします。
 

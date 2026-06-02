@@ -11,7 +11,7 @@
 ## 読むもの
 
 - `docs/agent/post_inventory.md`
-- `docs/skills/thema.md`
+- `docs/skills/theme.md`
 - 対象記事の `docs/agent/designs/NNN_design.md`
 
 ## 出力
@@ -32,4 +32,4 @@
 ## 注意
 
 - コマンド名は `/theme` に統一する
-- `docs/skills/thema.md` は既存のテーマ設計ルールとして参照する
+- `docs/skills/theme.md` は既存のテーマ設計ルールとして参照する
