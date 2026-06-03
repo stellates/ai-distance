@@ -27,7 +27,7 @@
 - 完成画像ファイル名
 - 4コマ内容
 - コラム内容
-- 現在の最新記事番号
+- 現在の最新記事番号（post_inventory.mdの最新記事番号+1の先頭0埋め3桁）
 
 ---
 
@@ -36,6 +36,10 @@
 作成先:
 
 posts/NNN.html
+
+参考:
+
+プロジェクトの 001.html
 
 ---
 
@@ -70,7 +74,8 @@ posts/NNN.html
 - 説教しない
 - AIを悪者にしない
 - 人間を馬鹿扱いしない
-- 300〜800文字程度
+- 不必要な改行を乱用しない
+- 300文字以内
 - 読後に納得感を残す
 
 ---
@@ -113,9 +118,33 @@ docs/agent/post_inventory.md
 
 以下を生成する。
 
-<article class="post-card">
-...
-</article>
+例: 記事番号031の実例、画像ファイル名も以下参考に自動で決定する
+```
+      <article class="post-card">
+        <a class="post-card-image" href="./posts/031.html">
+          <img src="./assets/images/031-progress-stopped-by-confirmations.png"
+            alt="確認指示を増やしすぎた結果、AIが何度も確認して作業が進まなくなる様子を描いた4コマ漫画" />
+        </a>
+        <div class="post-card-body">
+          <p class="post-number">#031</p>
+          <p class="post-date">
+            <time datetime="2026-06-03">公開日 2026/6/3</time>
+          </p>
+          <h3>
+            <a href="./posts/031.html">進まない理由、私だった</a>
+          </h3>
+          <p>
+            「ミスしないで」と念押ししたら、AIが確認ばかりで全然進まない。
+            慎重さとスピードのバランスを考える回。
+          </p>
+          <div class="tags" aria-label="タグ">
+            <span>確認</span>
+            <span>制約</span>
+            <span>作業効率</span>
+          </div>
+        </div>
+      </article>
+```
 
 ---
 
@@ -146,11 +175,18 @@ docs/agent/post_inventory.md
 # 完了時の動作
 
 サイト更新用成果物が完成しました。
+先ほど作成した画像は `assets/images/{画像ファイル名}` にリネームして配置してください。
 
-ローカルへ反映後、
+ローカルで一度起動確認を行い、問題がなければ
 
-- git add
-- git commit
+```
+- git add .
+- git commit -m "add: post-{NNN}"
 - git push
+```
 
 を実施してください。
+
+これでGitHub側でCI/CDが実行されるため、本番環境へ反映されたことを確認してください。
+
+これで今回の作業は終わりです。お疲れ様でした🍺
