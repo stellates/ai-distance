@@ -52,6 +52,51 @@ AIとのちょうどいい距離感（AI-DISTANCE）
 
 ---
 
+# AI-distance記事制作手順
+
+## 1. 事前準備
+
+- リポジトリを最新化する
+
+```bash
+git switch main
+git pull
+```
+
+## 2. 制作
+
+ChatGPTデスクトップアプリで
+AI-distance制作プロジェクトを開く。
+
+最新の post_inventory.md を共有する。
+
+以下を実行する。
+
+「プロジェクトの01_planning.mdを参照し、
+新記事を作成していきましょう。」
+
+以降は ChatGPT の案内に従って進める。
+
+## 3. 反映・公開
+
+生成された内容をローカルへ反映する。
+
+- post_inventory.md更新
+- 画像配置
+- 記事HTML作成
+- index.html更新
+
+完了後、
+
+- commit
+- push
+- デプロイ
+- 本番確認
+
+を実施する。
+
+---
+
 ## 作業工程ワークフロー
 
 | 工程番号 | 工程名 | 作業概要 |
