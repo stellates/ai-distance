@@ -4,22 +4,22 @@
 
 ## 実行前チェック
 
-`docs/agent/post_inventory.md` を棚卸しして、おすすめのテーマを提案できるようにする。
+`data/posts.json` を棚卸しして、おすすめのテーマを提案できるようにする。
 
 ### フェールオーバー
 
-GitHubから `docs/agent/post_inventory.md` が取得できていない場合のみ、ユーザーへ共有を依頼する。
+GitHubから `data/posts.json` が取得できていない場合のみ、ユーザーへ共有を依頼する。
 
 依頼例:
 
 ```
-GitHub上の post_inventory.md を取得できませんでした。
-ローカル clone の `docs/agent/post_inventory.md` を共有してください。
+GitHub上の posts.json を取得できませんでした。
+ローカル clone の `data/posts.json` を共有してください。
 ```
 
 ### 最優先ルール
 
-post_inventory.md を確認する前に、
+posts.json を確認する前に、
 
 - テーマ提案
 - ヒアリング
@@ -29,7 +29,7 @@ post_inventory.md を確認する前に、
 
 ### 実行順序
 
-1. post_inventory.md棚卸し
+1. posts.json棚卸し
 2. おすすめテーマ提案の上、ユーザーに決定しているテーマの有無、AI利用体験ヒアリング実施
 3. 企画作成
 4. 重複チェック
@@ -51,7 +51,7 @@ post_inventory.md を確認する前に、
 
 ## 参照情報
 
-必ず post_inventory.md を確認してください。
+必ず posts.json を確認してください。
 
 既存記事との重複回避を最優先とします。
 
