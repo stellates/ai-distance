@@ -12,98 +12,25 @@
   <link rel="stylesheet" href="./styles.css?v=20260505" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <style>
-    .post-tools {
-      display: grid;
-      gap: 0.9rem;
-      margin: 1.5rem 0 1.75rem;
-      padding: 1rem;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.72);
+    .home-section {
+      padding-top: 34px;
     }
 
-    .post-count {
-      margin: 0;
-      font-size: 0.95rem;
-      color: #666;
+    .home-intro {
+      max-width: 680px;
+      margin: 0 0 24px;
     }
 
-    .post-count strong {
-      color: inherit;
-      font-size: 1.15em;
+    .home-archive-note {
+      margin-top: 22px;
+      color: var(--muted);
     }
 
-    .post-filters {
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    .post-filter-field {
-      display: grid;
-      gap: 0.35rem;
-      font-size: 0.85rem;
-      color: #666;
-    }
-
-    .post-filter-field input {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 0.72rem 0.85rem;
-      border: 1px solid rgba(0, 0, 0, 0.14);
-      border-radius: 999px;
-      font: inherit;
-      background: #fff;
-    }
-
-    .post-filter-field input:focus {
-      outline: 2px solid rgba(0, 0, 0, 0.18);
-      outline-offset: 2px;
-    }
-
-    .post-filter-reset {
-      justify-self: start;
-      padding: 0.62rem 0.95rem;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      border-radius: 999px;
-      font: inherit;
-      color: #555;
-      background: #fff;
-      cursor: pointer;
-    }
-
-    .post-filter-reset:hover {
-      background: rgba(0, 0, 0, 0.04);
-    }
-
-    .post-empty-message {
-      display: none;
-      margin: 1.5rem 0 0;
-      color: #777;
-    }
-
-    .post-empty-message.is-visible {
-      display: block;
-    }
-
-    .post-list {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    .post-card[hidden] {
-      display: none;
-    }
-
-    @media (min-width: 720px) {
-      .post-tools {
-        grid-template-columns: auto 1fr;
-        align-items: end;
-      }
-
-      .post-filters {
-        grid-template-columns: minmax(220px, 1fr) 180px auto;
-        align-items: end;
-      }
+    .home-archive-note a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
     }
   </style>
 </head>
@@ -117,39 +44,17 @@
   </header>
 
   <main>
-    <section class="hero">
-      <p class="eyebrow">ai-distance</p>
-      <h1>AIとの<br class="sp-only">ちょうどいい距離感</h1>
-      <p class="lead">
+    <section class="section home-section" aria-label="最新記事">
+      <p class="lead home-intro">
         生成AI、便利。<br />
         でも、たまに「おいおい」ってなる。<br />
         そのへんを、ゆるく記録していきます。
       </p>
-    </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <h2>最近のぼやき</h2>
-        <p>画像＋短いメモで、ぽいぽい貯めていく予定です。</p>
-      </div>
-      <div class="post-tools" aria-label="記事の絞り込み">
-        <p class="post-count" aria-live="polite">
-          掲載記事 <strong id="visible-post-count">0</strong> / <span id="total-post-count">0</span> 件
-        </p>
-        <div class="post-filters">
-          <label class="post-filter-field">
-            過去記事検索
-            <input id="post-search" type="search" placeholder="タイトル・テーマ・タグで検索" autocomplete="off" />
-          </label>
-          <label class="post-filter-field">
-            公開日で絞り込み
-            <input id="post-date-filter" type="date" />
-          </label>
-          <button class="post-filter-reset" type="button" id="post-filter-reset">絞り込みを解除</button>
-        </div>
-      </div>
-      <p class="post-empty-message" id="post-empty-message">該当する記事が見つかりませんでした。</p>
-      <div class="post-list" id="post-list" aria-live="polite"></div>
+      <div id="latest-post" aria-live="polite"></div>
+      <p class="home-archive-note">
+        トップページには最新記事のみ掲載しています。過去記事は<a href="./archives.html">こちらから見られます</a>。
+      </p>
     </section>
   </main>
 
@@ -158,25 +63,28 @@
   </footer>
   <script>
     (() => {
-      const postList = document.getElementById('post-list');
-      const searchInput = document.getElementById('post-search');
-      const dateInput = document.getElementById('post-date-filter');
-      const resetButton = document.getElementById('post-filter-reset');
-      const visibleCount = document.getElementById('visible-post-count');
-      const totalCount = document.getElementById('total-post-count');
-      const emptyMessage = document.getElementById('post-empty-message');
+      const latestPostContainer = document.getElementById('latest-post');
 
-      if (!postList || !searchInput || !dateInput || !resetButton || !visibleCount || !totalCount || !emptyMessage) {
+      if (!latestPostContainer) {
         return;
       }
 
-      const normalize = (value) => String(value || '').trim().toLowerCase();
       const formatDate = (value) => {
         const [year, month, day] = String(value || '').split('-');
         if (!year || !month || !day) {
           return value;
         }
         return `${year}/${Number(month)}/${Number(day)}`;
+      };
+
+      const findLatestPost = (posts) => {
+        return [...posts].sort((a, b) => {
+          const dateOrder = String(b.date || '').localeCompare(String(a.date || ''));
+          if (dateOrder !== 0) {
+            return dateOrder;
+          }
+          return String(b.no || '').localeCompare(String(a.no || ''));
+        })[0];
       };
 
       const createElement = (tagName, options = {}) => {
@@ -200,7 +108,6 @@
         const image = document.createElement('img');
         image.src = imageUrl;
         image.alt = `${post.title} のテーマ「${post.theme}」を描いた4コマ漫画`;
-        image.loading = 'lazy';
         imageLink.append(image);
 
         const body = createElement('div', { className: 'post-card-body' });
@@ -230,47 +137,7 @@
         body.append(tags);
 
         article.append(imageLink, body);
-        article.dataset.date = post.date;
-        article.dataset.searchText = normalize([
-          post.no,
-          post.date,
-          post.title,
-          post.theme,
-          post.distance,
-          ...(post.tags || []),
-          post.similarAvoid,
-        ].join(' '));
-
         return article;
-      };
-
-      const renderPosts = (posts) => {
-        const fragment = document.createDocumentFragment();
-        posts.forEach((post) => {
-          fragment.append(createPostCard(post));
-        });
-        postList.replaceChildren(fragment);
-        return Array.from(postList.querySelectorAll('.post-card'));
-      };
-
-      const updatePosts = (postElements) => {
-        const keyword = normalize(searchInput.value);
-        const selectedDate = dateInput.value;
-        let shown = 0;
-
-        postElements.forEach((post) => {
-          const matchesKeyword = !keyword || post.dataset.searchText.includes(keyword);
-          const matchesDate = !selectedDate || post.dataset.date === selectedDate;
-          const shouldShow = matchesKeyword && matchesDate;
-
-          post.hidden = !shouldShow;
-          if (shouldShow) {
-            shown += 1;
-          }
-        });
-
-        visibleCount.textContent = String(shown);
-        emptyMessage.classList.toggle('is-visible', shown === 0);
       };
 
       fetch('./data/posts.json')
@@ -281,23 +148,15 @@
           return response.json();
         })
         .then((posts) => {
-          const postElements = renderPosts(posts);
-          totalCount.textContent = String(postElements.length);
-          searchInput.addEventListener('input', () => updatePosts(postElements));
-          dateInput.addEventListener('change', () => updatePosts(postElements));
-          resetButton.addEventListener('click', () => {
-            searchInput.value = '';
-            dateInput.value = '';
-            updatePosts(postElements);
-            searchInput.focus();
-          });
-          updatePosts(postElements);
+          const latestPost = findLatestPost(posts);
+          if (!latestPost) {
+            throw new Error('記事データが空です');
+          }
+
+          latestPostContainer.replaceChildren(createPostCard(latestPost));
         })
         .catch(() => {
-          totalCount.textContent = '0';
-          visibleCount.textContent = '0';
-          emptyMessage.textContent = '記事一覧を読み込めませんでした。';
-          emptyMessage.classList.add('is-visible');
+          latestPostContainer.textContent = '最新記事を読み込めませんでした。過去記事一覧から探してみてください。';
         });
     })();
   </script>
