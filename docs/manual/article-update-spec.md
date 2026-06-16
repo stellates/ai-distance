@@ -73,7 +73,14 @@ AI-distance制作プロジェクトを開く。
 以下を実行する。
 
 ```
-プロジェクトの00_starting.mdを参照し、新記事を作成していきましょう。
+プロジェクトの以下のファイルを確認してください。
+* 00_starting.md
+* 01_planning.md
+* 02_storyboard.md
+* 03_article_update.md
+* 04_image_prompt.md
+
+さっそく 00_starting.md を参照し、新記事を作成していきましょう。
 ```
 
 以降は ChatGPT の案内に従って進める。
