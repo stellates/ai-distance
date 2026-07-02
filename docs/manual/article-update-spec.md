@@ -73,6 +73,8 @@ AI-distance制作プロジェクトを開く。
 以下を実行する。
 
 ```
+@GitHub 
+
 プロジェクトの以下のファイルを確認してください。
 * 00_starting.md
 * 01_planning.md
