@@ -1,0 +1,560 @@
+<!doctype html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>AI-distanceは、こうやって生まれた | AIとのちょうどいい距離感</title>
+
+    <meta
+      name="description"
+      content="「AIとのちょうどいい距離感」100話記念。作品を始めたきっかけや、AIを使った漫画制作の苦労、ここまで続けてきた作者の感想を振り返ります。"
+    />
+
+    <meta property="og:title" content="AI-distanceは、こうやって生まれた" />
+    <meta
+      property="og:description"
+      content="100話まで作って分かった、AI漫画制作の面白さと難しさ。作者による制作裏話です。"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="../assets/images/100.webp" />
+
+    <link rel="stylesheet" href="../styles.css?v=20260505" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+    <style>
+      .behind-section {
+        margin-top: 42px;
+      }
+
+      .behind-section h2 {
+        margin-bottom: 14px;
+        font-size: 1.65rem;
+        line-height: 1.4;
+      }
+
+      .behind-section h3 {
+        margin-top: 28px;
+        margin-bottom: 10px;
+        font-size: 1.15rem;
+      }
+
+      .behind-note {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .comparison-title {
+        margin: 22px 0 10px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin: 24px 0 30px;
+      }
+
+      .image-grid.single {
+        grid-template-columns: minmax(0, 520px);
+        justify-content: center;
+      }
+
+      .image-card {
+        overflow: hidden;
+        margin: 0;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--paper);
+        box-shadow: 0 12px 30px rgba(31, 59, 45, 0.08);
+      }
+
+      .image-card img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: contain;
+        background: #f8faf9;
+      }
+
+      .image-card figcaption {
+        padding: 12px 15px 14px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.55;
+      }
+
+      .image-label {
+        display: inline-block;
+        margin-right: 6px;
+        color: var(--accent);
+        font-weight: 800;
+      }
+
+      .behind-section pre {
+        overflow-x: auto;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 16px;
+        background: #1d2a24;
+        color: #f7fbf8;
+        font-size: 0.88rem;
+        line-height: 1.7;
+        white-space: pre-wrap;
+      }
+
+      .behind-section code {
+        font-family:
+          ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          Monaco,
+          Consolas,
+          "Liberation Mono",
+          "Courier New",
+          monospace;
+      }
+
+      @media (max-width: 760px) {
+        .image-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .image-grid.single {
+          grid-template-columns: 1fr;
+        }
+
+        .image-card {
+          border-radius: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a
+        class="brand"
+        href="../index.html"
+        aria-label="AIとのちょうどいい距離感 トップへ"
+      >
+        <span class="brand-mark">AI</span>
+        <span class="brand-text">AIとのちょうどいい距離感</span>
+      </a>
+    </header>
+
+    <main class="post-layout">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="../index.html">トップ</a>
+        <span>/</span>
+        <a href="100.html">#100</a>
+        <span>/</span>
+        <span>制作裏話</span>
+      </nav>
+
+      <article class="post">
+        <header class="post-header">
+          <p class="post-number">#100 SPECIAL</p>
+
+          <h1>AI-distanceは、こうやって生まれた</h1>
+
+          <p class="post-subtitle">
+            100話まで作って分かった、AI漫画制作の面白さと難しさ。
+          </p>
+        </header>
+
+        <section class="behind-section">
+          <h2>AI-distanceは、こうやって生まれた</h2>
+
+          <p>
+            作者はもともと、長い文章だけを読んで何かを覚えるのがあまり得意ではありません。
+            「漫画みたいに短く、分かりやすく説明してくれたらいいのに」と昔から思っていました。
+          </p>
+
+          <p>
+            ただ、一昔前のChatGPTやGeminiで漫画を作ろうとすると、日本語の文字が崩れてしまうことが多く、なかなか思った形にはなりませんでした。
+          </p>
+
+          <p>
+            それがChatGPTのImage-gen2を使うようになって、かなり現実的になりました。
+            ちょうど仕事でも生成AIについて学ぶ機会が増えていた時期です。
+          </p>
+
+          <p>
+            そこで、「せっかく得た知識や実体験を、エンジニアではない人にも短く、分かりやすく伝えられないか」と考えて始めたのが、この「AIとのちょうどいい距離感」です。
+          </p>
+        </section>
+
+        <section class="behind-section">
+          <h2>ここまでの感想</h2>
+
+          <p>
+            この作品を作っている最中にも、「AIってすごいな」と何度も思いました。
+          </p>
+
+          <p>
+            一方で、本気で振り回された日もかなりあります（苦笑）。
+          </p>
+
+          <p>
+            実を言うと、100話すべてが「完璧！」と思って公開できたわけではありません。
+            むしろ毎回どこかで妥協しながら投稿しています。
+          </p>
+
+          <p>
+            AIには大きな可能性を感じます。
+            でも、一度うまくいったクオリティを次も同じように出し続けることが、想像以上に難しい。
+          </p>
+
+          <p>
+            ここからは、実際にどんなところで苦労してきたのかを紹介します。
+          </p>
+        </section>
+
+        <section class="behind-section">
+          <h2>キャラが違いすぎる（笑）</h2>
+
+          <p>
+            初期の作品と最近の作品を並べてみると、同じシリーズとは思えないくらいキャラクターが違います。
+          </p>
+
+          <p class="comparison-title">初期と現在を比べてみると……</p>
+
+          <div class="image-grid">
+            <figure class="image-card">
+              <img
+                src="../assets/images/002.webp"
+                alt="第2話の漫画画像"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="image-label">#002</span>
+                初期。今とはキャラクターも画風もかなり違います。
+              </figcaption>
+            </figure>
+
+            <figure class="image-card">
+              <img
+                src="../assets/images/099.webp"
+                alt="第99話の漫画画像"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="image-label">#099</span>
+                現在。キャラクターや線の雰囲気もだいぶ固定されました。
+              </figcaption>
+            </figure>
+          </div>
+
+          <p>
+            さらに厄介なのが、「だいたい同じキャラ」になってからも、話によって微妙に画風が変わることでした。
+          </p>
+
+          <p class="comparison-title">
+            同じ時期でも、よく見ると画風が違う
+          </p>
+
+          <div class="image-grid">
+            <figure class="image-card">
+              <img
+                src="../assets/images/090.webp"
+                alt="第90話の漫画画像"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="image-label">#090</span>
+                少し柔らかめのタッチ。
+              </figcaption>
+            </figure>
+
+            <figure class="image-card">
+              <img
+                src="../assets/images/093.webp"
+                alt="第93話の漫画画像"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="image-label">#093</span>
+                同じキャラクターでも微妙に雰囲気が変わります。
+              </figcaption>
+            </figure>
+          </div>
+
+          <h3>どうやって改善した？</h3>
+
+          <p>
+            一番安定したのは、過去にうまく生成できた画像をAIへ渡し、「このキャラクターと画風を参考にして」と頼む方法でした。
+          </p>
+
+          <p>
+            成功画像をAIに分析させ、その特徴を再現プロンプトとしてテンプレート化する方法も試しました。
+            こちらもかなり改善しましたが、それでも微妙に画風がズレることがあります。
+          </p>
+
+          <p>
+            ちなみに最初の頃は、キャラクターについて細かな指定をほとんどしていませんでした。
+            キャラクターも画風も、ほぼAIの気分次第です（笑）。
+          </p>
+        </section>
+
+        <section class="behind-section">
+          <h2>同じ4コマ内でも統一性がない</h2>
+
+          <p>
+            キャラクターを決めても安心はできません。
+          </p>
+
+          <p>
+            1コマ目ではメガネをかけていたのに、3コマ目と今回の距離感では突然なくなっている。
+          </p>
+
+          <p>
+            メガネどこ行った（笑）。
+          </p>
+
+          <div class="image-grid single">
+            <figure class="image-card">
+              <img
+                src="../assets/images/018.webp"
+                alt="第18話で途中から女性キャラクターのメガネが消えている漫画画像"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="image-label">#018</span>
+                1コマ目にはあるメガネが、途中からしれっと消えています（笑）。
+              </figcaption>
+            </figure>
+          </div>
+
+          <h3>どうやって改善した？</h3>
+
+          <p>
+            そこで、画像を作るたびにキャラクターの統一ルールを明示するようになりました。
+          </p>
+
+          <p>
+            例えば、現在はこんな指示を入れています。
+          </p>
+
+          <pre><code>同じ1枚の漫画内では、
+女性キャラクターとAIロボットを
+同一キャラクターとして描く。
+
+キャラクターの核は全コマで固定する。
+表情、視線、手のポーズ、体の向きだけを変える。
+
+女性キャラクターは、
+顔立ち、髪型の基本、目の形、体格を変えない。
+
+AIロボットは、
+シルエット、顔画面、目の形、
+アンテナ、耳パーツ、胸マークを変えない。
+
+明示していない衣装変更をしない。
+画風を途中で変えない。</code></pre>
+
+          <p>
+            ここまで書いても絶対ではありません。
+            でも、何も指定しなかった頃と比べるとかなり安定しました。
+          </p>
+        </section>
+
+        <section class="behind-section">
+          <h2>吹き出しどっから出てるんだよ...</h2>
+
+          <p>
+            もう一つ苦労したのが吹き出しです。
+          </p>
+
+          <p>
+            本当は女性のセリフなのにAIロボットから吹き出しが出ていたり、その逆だったり。
+            心の声なのか、普通にしゃべっているのか分からないこともありました（汗）。
+          </p>
+
+          <div class="image-grid single">
+            <figure class="image-card">
+              <img
+                src="../assets/images/023.webp"
+                alt="第23話の吹き出し位置が不自然になった漫画画像"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="image-label">#023</span>
+                セリフ自体は合っているのに、吹き出しの担当がおかしい例。
+              </figcaption>
+            </figure>
+          </div>
+
+          <h3>どうやって改善した？</h3>
+
+          <p>
+            4コマ構成や画像生成プロンプトを作る段階で、「誰の文字なのか」をなるべく細かく分けるようにしました。
+          </p>
+
+          <p>
+            「女性の吹き出し」「AIロボットの吹き出し」「女性の心の声」「背景に表示する文字」など、文字の役割まで指定します。
+          </p>
+
+          <p>
+            人間からすると当然に見える区別でも、AIには明示した方が安定することが多いようです。
+          </p>
+        </section>
+
+        <section class="behind-section">
+          <h2>何よりテーマ決めが大変！！</h2>
+
+          <p>
+            実は、一番大変なのは画像生成ではなく、毎回の「ネタ決め」かもしれません。
+          </p>
+
+          <p>
+            ChatGPTやClaudeにこれまでのバックナンバーを見せて、「次のテーマを考えて」と頼むこともあります。
+          </p>
+
+          <p>
+            でも、AIだけに任せると妙に真面目。
+            正しいけれど、漫画としてはあまり面白くない案が大量に出てくることがあります（苦笑）。
+          </p>
+
+          <p>
+            個人的には、案外Geminiの方が面白いネタを出してくれる時もあります。
+            とはいえ、どのAIでも、そのまま採用できることはほとんどありません。
+            以下は、敢えてOKとしたAI丸投げ回です。
+          </p>
+
+          <div class="image-grid single">
+            <figure class="image-card">
+              <img
+                src="../assets/images/058.webp"
+                alt="AIにテーマ決めから任せて制作した第58話の漫画画像"
+                loading="lazy"
+              />
+              <figcaption>
+                <span class="image-label">#058</span>
+                あえてAIにかなり任せて制作した回。まとまってはいるけど……やっぱり真面目（笑）。
+              </figcaption>
+            </figure>
+          </div>
+
+          <p>
+            最後は結局、「これなら自分でもクスッとするか？」を人間側で考えています。
+          </p>
+        </section>
+
+        <section class="behind-section">
+          <h2>自動化できるようでやり切れない</h2>
+
+          <p>
+            100話も作るなら、できるだけ自動化したくなります。
+            作者はシステムエンジニア・プログラマーなので、当然のように考えました。
+          </p>
+
+          <p>
+            Codexを使って、テーマ決めから記事作成、画像生成、サイト更新まで全自動に近づけようとしたこともあります。
+            AGENTS.mdやSKILLを用意して、工程もかなり細かく決めました。
+          </p>
+
+          <p>
+            ところが、ときどき工程を飛ばしたり、指示を無視したりします。
+            酷い時には既存画像を参照せず、そのまま画像を作り始めて作画が完全に別作品になったこともありました。
+          </p>
+
+          <p>
+            そして何より、全部任せるとやっぱりネタが真面目すぎる（笑）。
+          </p>
+
+          <p>
+            また、私の利用環境では画像を多く扱う作業をするとCodexの利用上限をかなり消費することがありました。
+            ChatGPT Plusの範囲で他の開発作業にもCodexを使いたいので、「ここでこんなに使うのはもったいないな……」とケチることもあります。
+          </p>
+
+          <p>
+            結果として現在は、完全自動化よりも「ChatGPTだけで、できるところまで作業を省力化する」という形に落ち着いています。
+          </p>
+        </section>
+
+        <section class="behind-section">
+          <h2>まとめ</h2>
+
+          <p>
+            今もなお四苦八苦しながら、「いつかもっと自動化できないかな」と考えています。
+          </p>
+
+          <p>
+            サイトの実装や更新作業そのものは、自分でやろうと思えばできます。
+          </p>
+
+          <p>
+            ただ、このシリーズの4コマ構成を毎回考え、漫画画像として形にする部分は完全にAIありきです。
+          </p>
+
+          <p>
+            なのでChatGPTから突然ハシゴを外されたら、この作品は普通に打ち切りになります（苦笑）。
+          </p>
+
+          <p>
+            そういう意味でも、この作品そのものが「AIとのちょうどいい距離感」を試し続けている実験なのかもしれません。
+          </p>
+        </section>
+
+        <section class="memo soft">
+          <h2>あとがき</h2>
+
+          <p>
+            改めて最初から振り返ってみると、作品だけでなく、作者自身のAIへの印象もかなり変わってきました。
+          </p>
+
+          <p>
+            最初は、「よく分からないけど、なんかすごい。でも、なんか抜けてる？」くらいの感覚でした。
+          </p>
+
+          <p>
+            今は、「この指示だとたぶん間違う」「こう書けばうまくいきやすい」という感覚が少しずつ分かってきました。
+          </p>
+
+          <p>
+            ……と思った頃に、また予想外のことをして裏切ってくるやつでもあります（笑）。
+          </p>
+
+          <p>
+            AIそのものの賢さ以上に困るのが、サービス側の仕様や挙動が変わることです。
+            昨日まで読めていたプロンプト用のファイルを突然「読めません」と言われたり、今まで使えていた長さの画像生成プロンプトを「長すぎます」と言われたり。
+          </p>
+
+          <p>
+            「昨日できたじゃん！」と思うことは、今でもあります。
+          </p>
+
+          <p>
+            それでも、自分自身のAIとの向き合い方を記録するために。
+            自分のスキルを少しずつ上げていくために。
+            そして読んだ方に少しでも「あるある」「分かる（笑）」と思ってもらうために。
+          </p>
+
+          <p>
+            これからも、ぼちぼち続けていこうと思います。
+          </p>
+
+          <p>
+            ここまで読んでいただき、本当にありがとうございました。
+            引き続き「AIとのちょうどいい距離感」をよろしくお願いいたします。
+          </p>
+        </section>
+
+        <p class="back-link">
+          <a href="100.html">← 第100話へ戻る</a>
+        </p>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>© ai-distance</p>
+    </footer>
+  </body>
+</html>
