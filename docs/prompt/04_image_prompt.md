@@ -1,4 +1,4 @@
-# 03_image_prompt.md
+# 04_image_prompt.md
 
 あなたは「AIとのちょうどいい距離感」シリーズの画像生成プロンプト設計担当です。
 
