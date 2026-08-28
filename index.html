@@ -1,170 +1,196 @@
 <!doctype html>
 <html lang="ja">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AIとのちょうどいい距離感</title>
-  <meta name="description" content="生成AIの「すごい」と「ざんねん」を、画像と短いメモでゆるく記録していく場所です。" />
-  <meta property="og:title" content="AIとのちょうどいい距離感" />
-  <meta property="og:description" content="生成AI、便利。でも、たまに「おいおい」ってなる。そのへんを、ゆるく記録していきます。" />
-  <meta property="og:type" content="website" />
-    <meta property="og:type" content="article" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIとのちょうどいい距離感</title>
+    <meta
+      name="description"
+      content="生成AIの「すごい」と「ざんねん」を、画像と短いメモでゆるく記録していく場所です。"
+    />
+    <meta property="og:title" content="AIとのちょうどいい距離感" />
+    <meta
+      property="og:description"
+      content="生成AI、便利。でも、たまに「おいおい」ってなる。そのへんを、ゆるく記録していきます。"
+    />
+    <meta property="og:type" content="website" />
     <meta
       property="og:image"
       content="https://stellates.github.io/ai-distance/assets/images/100.webp"
     />
-  <link rel="stylesheet" href="./styles.css?v=20260505" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <style>
-    .home-section {
-      padding-top: 34px;
-    }
-
-    .home-intro {
-      max-width: 680px;
-      margin: 0 0 24px;
-    }
-
-    .home-archive-note {
-      margin-top: 22px;
-      color: var(--muted);
-    }
-
-    .home-archive-note a {
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 0.18em;
-    }
-  </style>
-</head>
-
-<body>
-  <header class="site-header">
-    <a class="brand" href="./index.html" aria-label="AIとのちょうどいい距離感 トップへ">
-      <span class="brand-mark">AI</span>
-      <span class="brand-text">AIとのちょうどいい距離感</span>
-    </a>
-  </header>
-
-  <main>
-    <section class="section home-section" aria-label="最新記事">
-      <p class="lead home-intro">
-        生成AI、便利。<br />
-        でも、たまに「おいおい」ってなる。<br />
-        そのへんを、ゆるく記録していきます。
-      </p>
-
-      <div id="latest-post" aria-live="polite"></div>
-      <p class="home-archive-note">
-        トップページには最新記事のみ掲載しています。過去記事は<a href="./archives.html">こちらから見られます</a>。
-      </p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© ai-distance</p>
-  </footer>
-  <script>
-    (() => {
-      const latestPostContainer = document.getElementById('latest-post');
-
-      if (!latestPostContainer) {
-        return;
+    <meta
+      property="og:url"
+      content="https://stellates.github.io/ai-distance/index.html"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260505" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <style>
+      .home-section {
+        padding-top: 34px;
       }
 
-      const formatDate = (value) => {
-        const [year, month, day] = String(value || '').split('-');
-        if (!year || !month || !day) {
-          return value;
+      .home-intro {
+        max-width: 680px;
+        margin: 0 0 24px;
+      }
+
+      .home-archive-note {
+        margin-top: 22px;
+        color: var(--muted);
+      }
+
+      .home-archive-note a {
+        color: var(--accent);
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a
+        class="brand"
+        href="./index.html"
+        aria-label="AIとのちょうどいい距離感 トップへ"
+      >
+        <span class="brand-mark">AI</span>
+        <span class="brand-text">AIとのちょうどいい距離感</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="section home-section" aria-label="最新記事">
+        <p class="lead home-intro">
+          生成AI、便利。<br />
+          でも、たまに「おいおい」ってなる。<br />
+          そのへんを、ゆるく記録していきます。
+        </p>
+
+        <div id="latest-post" aria-live="polite"></div>
+        <p class="home-archive-note">
+          トップページには最新記事のみ掲載しています。過去記事は<a
+            href="./archives.html"
+            >こちらから見られます</a
+          >。
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© ai-distance</p>
+    </footer>
+    <script>
+      (() => {
+        const latestPostContainer = document.getElementById("latest-post");
+
+        if (!latestPostContainer) {
+          return;
         }
-        return `${year}/${Number(month)}/${Number(day)}`;
-      };
 
-      const findLatestPost = (posts) => {
-        return [...posts].sort((a, b) => {
-          const dateOrder = String(b.date || '').localeCompare(String(a.date || ''));
-          if (dateOrder !== 0) {
-            return dateOrder;
+        const formatDate = (value) => {
+          const [year, month, day] = String(value || "").split("-");
+          if (!year || !month || !day) {
+            return value;
           }
-          return String(b.no || '').localeCompare(String(a.no || ''));
-        })[0];
-      };
+          return `${year}/${Number(month)}/${Number(day)}`;
+        };
 
-      const createElement = (tagName, options = {}) => {
-        const element = document.createElement(tagName);
-        if (options.className) {
-          element.className = options.className;
-        }
-        if (options.text !== undefined) {
-          element.textContent = options.text;
-        }
-        return element;
-      };
+        const findLatestPost = (posts) => {
+          return [...posts].sort((a, b) => {
+            const dateOrder = String(b.date || "").localeCompare(
+              String(a.date || ""),
+            );
+            if (dateOrder !== 0) {
+              return dateOrder;
+            }
+            return String(b.no || "").localeCompare(String(a.no || ""));
+          })[0];
+        };
 
-      const createPostCard = (post) => {
-        const article = createElement('article', { className: 'post-card' });
-        const postUrl = `./posts/${post.no}.html`;
-        const imageUrl = `./assets/images/${post.no}.webp`;
-
-        const imageLink = createElement('a', { className: 'post-card-image' });
-        imageLink.href = postUrl;
-        const image = document.createElement('img');
-        image.src = imageUrl;
-        image.alt = `${post.title} のテーマ「${post.theme}」を描いた4コマ漫画`;
-        imageLink.append(image);
-
-        const body = createElement('div', { className: 'post-card-body' });
-        body.append(createElement('p', { className: 'post-number', text: `#${post.no}` }));
-
-        const dateParagraph = createElement('p', { className: 'post-date' });
-        const time = document.createElement('time');
-        time.dateTime = post.date;
-        time.textContent = `公開日 ${formatDate(post.date)}`;
-        dateParagraph.append(time);
-        body.append(dateParagraph);
-
-        const heading = document.createElement('h3');
-        const titleLink = document.createElement('a');
-        titleLink.href = postUrl;
-        titleLink.textContent = post.title;
-        heading.append(titleLink);
-        body.append(heading);
-
-        body.append(createElement('p', { text: `${post.theme}。${post.distance}。` }));
-
-        const tags = createElement('div', { className: 'tags' });
-        tags.setAttribute('aria-label', 'タグ');
-        post.tags.forEach((tag) => {
-          tags.append(createElement('span', { text: tag }));
-        });
-        body.append(tags);
-
-        article.append(imageLink, body);
-        return article;
-      };
-
-      fetch('./data/posts.json')
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('posts.json を読み込めませんでした');
+        const createElement = (tagName, options = {}) => {
+          const element = document.createElement(tagName);
+          if (options.className) {
+            element.className = options.className;
           }
-          return response.json();
-        })
-        .then((posts) => {
-          const latestPost = findLatestPost(posts);
-          if (!latestPost) {
-            throw new Error('記事データが空です');
+          if (options.text !== undefined) {
+            element.textContent = options.text;
           }
+          return element;
+        };
 
-          latestPostContainer.replaceChildren(createPostCard(latestPost));
-        })
-        .catch(() => {
-          latestPostContainer.textContent = '最新記事を読み込めませんでした。過去記事一覧から探してみてください。';
-        });
-    })();
-  </script>
-</body>
+        const createPostCard = (post) => {
+          const article = createElement("article", { className: "post-card" });
+          const postUrl = `./posts/${post.no}.html`;
+          const imageUrl = `./assets/images/${post.no}.webp`;
 
+          const imageLink = createElement("a", {
+            className: "post-card-image",
+          });
+          imageLink.href = postUrl;
+          const image = document.createElement("img");
+          image.src = imageUrl;
+          image.alt = `${post.title} のテーマ「${post.theme}」を描いた4コマ漫画`;
+          imageLink.append(image);
+
+          const body = createElement("div", { className: "post-card-body" });
+          body.append(
+            createElement("p", {
+              className: "post-number",
+              text: `#${post.no}`,
+            }),
+          );
+
+          const dateParagraph = createElement("p", { className: "post-date" });
+          const time = document.createElement("time");
+          time.dateTime = post.date;
+          time.textContent = `公開日 ${formatDate(post.date)}`;
+          dateParagraph.append(time);
+          body.append(dateParagraph);
+
+          const heading = document.createElement("h3");
+          const titleLink = document.createElement("a");
+          titleLink.href = postUrl;
+          titleLink.textContent = post.title;
+          heading.append(titleLink);
+          body.append(heading);
+
+          body.append(
+            createElement("p", { text: `${post.theme}。${post.distance}。` }),
+          );
+
+          const tags = createElement("div", { className: "tags" });
+          tags.setAttribute("aria-label", "タグ");
+          post.tags.forEach((tag) => {
+            tags.append(createElement("span", { text: tag }));
+          });
+          body.append(tags);
+
+          article.append(imageLink, body);
+          return article;
+        };
+
+        fetch("./data/posts.json")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("posts.json を読み込めませんでした");
+            }
+            return response.json();
+          })
+          .then((posts) => {
+            const latestPost = findLatestPost(posts);
+            if (!latestPost) {
+              throw new Error("記事データが空です");
+            }
+
+            latestPostContainer.replaceChildren(createPostCard(latestPost));
+          })
+          .catch(() => {
+            latestPostContainer.textContent =
+              "最新記事を読み込めませんでした。過去記事一覧から探してみてください。";
+          });
+      })();
+    </script>
+  </body>
 </html>
