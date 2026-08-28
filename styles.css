@@ -200,10 +200,50 @@ h1, h2, h3, p { margin-top: 0; }
 .memo h2 { margin-bottom: 12px; font-size: 1.35rem; }
 .memo p:last-child { margin-bottom: 0; }
 
-.back-link {
+.post-nav {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.2fr) auto minmax(0, 1fr);
+  grid-template-areas: "previous previous-separator archive next-separator next";
+  gap: 10px;
+  align-items: center;
   margin: 28px 0 0;
   color: var(--muted);
   font-weight: 700;
+}
+
+.post-nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 2.2em;
+}
+
+.post-nav-previous {
+  grid-area: previous;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.post-nav-archive {
+  grid-area: archive;
+  justify-content: center;
+  text-align: center;
+}
+
+.post-nav-next {
+  grid-area: next;
+  justify-content: flex-start;
+}
+
+.post-nav-separator:nth-child(2) { grid-area: previous-separator; }
+.post-nav-separator:nth-child(4) { grid-area: next-separator; }
+
+.post-nav .is-disabled {
+  color: var(--muted);
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
 }
 
 .site-footer {
@@ -224,4 +264,15 @@ h1, h2, h3, p { margin-top: 0; }
   .post-card { grid-template-columns: 1fr; padding: 18px; }
   .post { padding: 18px; }
   .memo { padding: 20px; }
+  .post-nav {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "previous next"
+      "archive archive";
+    gap: 8px 16px;
+  }
+
+  .post-nav-separator { display: none; }
+  .post-nav-previous { justify-content: flex-start; text-align: left; }
+  .post-nav-next { justify-content: flex-end; text-align: right; }
 }

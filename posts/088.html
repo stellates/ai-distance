@@ -12,6 +12,7 @@
   <meta property="og:image" content="https://stellates.github.io/ai-distance/assets/images/088.webp" />
   <link rel="stylesheet" href="../styles.css?v=20260505" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <script src="../post-nav.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -73,9 +74,13 @@
       </div>
     </article>
 
-    <p class="back-link">
-      <a href="../archives.html">他の過去作品も見る</a>
-    </p>
+    <nav class="post-nav" data-post-nav aria-label="記事ナビゲーション">
+      <span class="post-nav-link post-nav-previous is-disabled" data-post-nav-previous aria-disabled="true">← 前の話を見る</span>
+      <span class="post-nav-separator" aria-hidden="true">｜</span>
+      <a class="post-nav-link post-nav-archive" href="../archives.html">他の過去作品も見る</a>
+      <span class="post-nav-separator" aria-hidden="true">｜</span>
+      <span class="post-nav-link post-nav-next is-disabled" data-post-nav-next aria-disabled="true">次の話を見る →</span>
+    </nav>
   </main>
 
   <footer class="site-footer">
