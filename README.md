@@ -2,11 +2,45 @@
 
 生成AIとのちょうどいい距離感を考えるための、ゆるいネタ置き場です。
 
-生成AI、便利。
+生成AI、便利。  
 でも、たまに「おいおい」ってなる。
 
-そんな「すごい」「惜しい」「なんでやねん」を、
-画像と短いメモで少しずつ貯めていきます。
+そんな「すごい」「惜しい」「なんでやねん」を、  
+画像と短いメモで少しずつ貯めています。
+
+## このプロジェクトについて
+
+生成AIとの日常的なやり取りで感じる違和感や発見を、短い漫画と文章で紹介する個人制作プロジェクトです。
+
+コンテンツの制作自体にも生成AIを活用し、企画から画像生成、記事の作成・公開まで、さまざまな方法を試してきました。
+
+2026年5月に制作を開始し、同年10月までに167本の記事を公開しました。
+
+制作の効率化を試す一方で、作画品質のばらつきや表現の一貫性、題材の重複など、生成AIによるコンテンツ制作ならではの課題も経験しています。
+
+生成AIを使ったコンテンツ制作の可能性と課題を探る、実験的な個人制作プロジェクトです。
+
+## 更新について
+
+現在は不定期更新です。
+
+定期的な更新予定は設けず、新しいテーマやアイデアが浮かんだときに記事を追加する方針です。
+
+既存の記事は引き続き公開しています。
+
+## 制作について
+
+漫画画像にはOpenAIの画像生成機能を利用しています。
+
+制作工程についても、ChatGPTやCodexを使った半自動化など、いろいろと試行錯誤してきました。
+
+最終的には、ChatGPTのプロジェクト機能を利用し、`docs/prompt` 配下のプロンプトと、既存エピソードで生成した漫画画像を参照画像として配置して制作する形に落ち着いています。
+
+なお、リポジトリには過去に試した手順書や設定ファイル、Codexによる半自動化の仕組みなども残っています。
+
+これらは必ずしも現在の制作工程を反映したものではなく、整理されたノウハウ集というより、試行錯誤の過程で生まれた記録です。
+
+いろいろ試した結果、四苦八苦した痕跡がそのまま残っている状態です（笑）。
 
 ## ライセンス（日本語）
 
@@ -22,41 +56,15 @@
 - Code: MIT License
 - Images, comics, articles, and other non-code content: CC BY-NC-SA 4.0
 
-This means the site code can be reused freely under the MIT License, while the
-content may be shared or adapted for non-commercial purposes with attribution
-and share-alike conditions.
+This means the site code can be reused freely under the MIT License, while the content may be shared or adapted for non-commercial purposes with attribution and share-alike conditions.
 
-## メンテナンス担当向け
+## 制作関連資料
 
-記事の追加手順は以下を参照してください。
+以下は制作過程で作成した資料です。
 
-- このシリーズの漫画画像は `Image-gen2.0` を用いて作成しています。
-- 画像生成工程の都合上、記事追加作業には `ChatGPT` または `Codex` の利用を前提としています。
+- [制作プロンプト](docs/prompt)
+- [ChatGPTによる更新手順書](docs/manual/maintenance_manual.md)
+- [Codexによる半自動更新手順書](docs/manual/codex_maintenance_manual.md)
+- [AI向け設定ファイル](AGENTS.md)
 
----
-
-### ChatGPTで行う場合
-
-[🗒️ 通常更新手順書](docs/manual/maintenance_manual.md)
-
-- Codexは利用枠に限りがあるため、通常はこちらの手順を推奨します。
-- 手順に従ってChatGPTを起動すると、ワークフロー形式で作業を補助します。
-
----
-
-### Codexで行う場合
-
-[🗒️ 半自動更新手順書](docs/manual/codex_maintenance_manual.md)
-
-- Codex利用枠に余裕があり、作業時間を短縮したい場合はこちらを利用してください。
-- 2026/5/31時点では、1回の実行でChatGPT Plusの5時間利用枠をおおむね5%前後消費します。
-- テーマや構成イメージは事前に決めておく必要があります。
-- 画像生成品質に問題がある場合は、ChatGPTで差し替え用画像を生成し、人手で差し替えてください。
-- 記事内容に不満がある場合は、人手またはChatGPT補助で修正してください。
-- 過度な期待はせず、「うまくいけばラッキー」くらいの気持ちで使うことをおすすめします。
-
-### AI向け設定
-
-ChatGPT / Codex は、以下の設定ファイルを参照して動作します。
-
-[AGENTS.md](AGENTS.md)
+**注意：** これらには過去の制作方法や検証途中の内容が含まれており、現在の運用と一致しない場合があります。動作や再現性を保証するものではありません。
